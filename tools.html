@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools — Supriyo Sen</title>
+  <meta name="description" content="Tools, apps, and utilities built by Supriyo Sen — published on Vercel and across the web." />
+  <meta property="og:title" content="Tools — Supriyo Sen" />
+  <meta property="og:description" content="Apps and tools built by Arya Sen — live on the web." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@300;400;500;600&family=Jaro&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <style>
+    body { background: #060606; margin: 0; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════ CUSTOM CURSOR ════════════════ -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- ════════════════ NAVIGATION ════════════════ -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav__logo" aria-label="Arya Sen — Home">
+      <img src="/logo-arya-white.png" alt="Arya Sen logo" />
+    </a>
+    <div class="nav__links">
+      <a href="/#work" class="nav__link">Work</a>
+      <a href="/#services" class="nav__link">Services</a>
+      <a href="/blog.html" class="nav__link">Blog</a>
+      <a href="/tools.html" class="nav__link active">Tools</a>
+    </div>
+    <a href="/#contact" class="nav__cta">Let's Talk</a>
+  </nav>
+
+  <!-- ════════════════ MAIN CONTENT ════════════════ -->
+  <main>
+
+    <!-- ─── TOOLS HERO ─── -->
+    <section class="tools-hero">
+      <div class="tools-hero__container">
+        <a href="/" class="blog-back reveal">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back
+        </a>
+        <div class="tools-hero__label label reveal">Built &amp; Shipped</div>
+        <h1 class="tools-hero__title reveal">TOOLS.</h1>
+        <p class="tools-hero__sub reveal">Apps, utilities, and experiments I built and shipped — live on Vercel and across the web.</p>
+      </div>
+    </section>
+
+    <!-- ─── FILTERS ─── -->
+    <div class="tools-filters reveal-stagger">
+      <button class="tools-filters__btn active" data-cat="all">All</button>
+      <button class="tools-filters__btn" data-cat="web-app">Web App</button>
+      <button class="tools-filters__btn" data-cat="ai-tool">AI Tool</button>
+      <button class="tools-filters__btn" data-cat="visual">Visual</button>
+      <button class="tools-filters__btn" data-cat="utility">Utility</button>
+    </div>
+
+    <!-- ─── TOOLS GRID ─── -->
+    <!--
+      HOW TO ADD A TOOL:
+      1. Copy one of the <a> card blocks below
+      2. Set href="YOUR_VERCEL_OR_EXTERNAL_URL"
+      3. Update data-cat to: web-app | ai-tool | visual | utility
+      4. Change status class to tool-card__status--live and text to "Live"
+      5. Update number, tag, name, desc, and platform text
+    -->
+    <div class="tools-grid">
+
+      <!-- Tool 01 — update href when ready -->
+      <a href="#" class="tool-card" data-cat="web-app">
+        <div class="tool-card__top">
+          <span class="tool-card__number">01</span>
+          <span class="tool-card__status tool-card__status--soon">Soon</span>
+        </div>
+        <span class="tool-card__tag">Web App</span>
+        <h2 class="tool-card__name">Tool Name</h2>
+        <p class="tool-card__desc">A short description of what this tool does and the problem it solves. Add your description here.</p>
+        <div class="tool-card__footer">
+          <span class="tool-card__platform">Vercel</span>
+          <span class="tool-card__launch">Visit ↗</span>
+        </div>
+      </a>
+
+      <!-- Tool 02 — update href when ready -->
+      <a href="#" class="tool-card" data-cat="ai-tool">
+        <div class="tool-card__top">
+          <span class="tool-card__number">02</span>
+          <span class="tool-card__status tool-card__status--soon">Soon</span>
+        </div>
+        <span class="tool-card__tag">AI Tool</span>
+        <h2 class="tool-card__name">Tool Name</h2>
+        <p class="tool-card__desc">A short description of what this tool does and the problem it solves. Add your description here.</p>
+        <div class="tool-card__footer">
+          <span class="tool-card__platform">Vercel</span>
+          <span class="tool-card__launch">Visit ↗</span>
+        </div>
+      </a>
+
+      <!-- Tool 03 — update href when ready -->
+      <a href="#" class="tool-card" data-cat="visual">
+        <div class="tool-card__top">
+          <span class="tool-card__number">03</span>
+          <span class="tool-card__status tool-card__status--soon">Soon</span>
+        </div>
+        <span class="tool-card__tag">Visual</span>
+        <h2 class="tool-card__name">Tool Name</h2>
+        <p class="tool-card__desc">A short description of what this tool does and the problem it solves. Add your description here.</p>
+        <div class="tool-card__footer">
+          <span class="tool-card__platform">Vercel</span>
+          <span class="tool-card__launch">Visit ↗</span>
+        </div>
+      </a>
+
+      <!-- Tool 04 — update href when ready -->
+      <a href="#" class="tool-card" data-cat="utility">
+        <div class="tool-card__top">
+          <span class="tool-card__number">04</span>
+          <span class="tool-card__status tool-card__status--soon">Soon</span>
+        </div>
+        <span class="tool-card__tag">Utility</span>
+        <h2 class="tool-card__name">Tool Name</h2>
+        <p class="tool-card__desc">A short description of what this tool does and the problem it solves. Add your description here.</p>
+        <div class="tool-card__footer">
+          <span class="tool-card__platform">Vercel</span>
+          <span class="tool-card__launch">Visit ↗</span>
+        </div>
+      </a>
+
+      <!-- Tool 05 — update href when ready -->
+      <a href="#" class="tool-card" data-cat="web-app">
+        <div class="tool-card__top">
+          <span class="tool-card__number">05</span>
+          <span class="tool-card__status tool-card__status--soon">Soon</span>
+        </div>
+        <span class="tool-card__tag">Web App</span>
+        <h2 class="tool-card__name">Tool Name</h2>
+        <p class="tool-card__desc">A short description of what this tool does and the problem it solves. Add your description here.</p>
+        <div class="tool-card__footer">
+          <span class="tool-card__platform">Vercel</span>
+          <span class="tool-card__launch">Visit ↗</span>
+        </div>
+      </a>
+
+      <!-- Tool 06 — update href when ready -->
+      <a href="#" class="tool-card" data-cat="ai-tool">
+        <div class="tool-card__top">
+          <span class="tool-card__number">06</span>
+          <span class="tool-card__status tool-card__status--soon">Soon</span>
+        </div>
+        <span class="tool-card__tag">AI Tool</span>
+        <h2 class="tool-card__name">Tool Name</h2>
+        <p class="tool-card__desc">A short description of what this tool does and the problem it solves. Add your description here.</p>
+        <div class="tool-card__footer">
+          <span class="tool-card__platform">Vercel</span>
+          <span class="tool-card__launch">Visit ↗</span>
+        </div>
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <!-- Link columns -->
+      <div class="footer__grid">
+        <div class="footer__col">
+          <span class="footer__col-label">Navigate</span>
+          <a href="/#work" class="footer__link">Work</a>
+          <a href="/#services" class="footer__link">Services</a>
+          <a href="/#clients" class="footer__link">Clients</a>
+          <a href="/blog.html" class="footer__link">Blog</a>
+          <a href="/tools.html" class="footer__link active">Tools</a>
+          <a href="/#contact" class="footer__link">Contact</a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-label">Connect</span>
+          <a href="https://www.instagram.com/_arya.sen/" target="_blank" rel="noopener" class="footer__link">Instagram <span>↗</span></a>
+          <a href="https://www.behance.net/supriyosen1" target="_blank" rel="noopener" class="footer__link">Behance <span>↗</span></a>
+          <a href="mailto:aryaknj@gmail.com" class="footer__link">Email <span>↗</span></a>
+          <a href="https://wa.me/919851202658" target="_blank" rel="noopener" class="footer__link">WhatsApp <span>↗</span></a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-label">Studio</span>
+          <p class="footer__studio-desc">Co-founder &amp; Creative Director</p>
+          <p class="footer__studio-name">Bufferrring</p>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Supriyo Sen. Crafted with <span class="footer-accent">code &amp; caffeine</span>.</p>
+        <a href="#" class="footer__back-top">Back to top ↑</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script type="module" src="/src/tools.js"></script>
+</body>
+
+</html>

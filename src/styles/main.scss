@@ -1,0 +1,17 @@
+// ─── Main SCSS Entry ───
+// Uses @import so all partials share variables globally
+
+@import 'variables';
+@import 'reset';
+@import 'typography';
+@import 'utilities';
+@import 'preloader';
+@import 'nav';
+@import 'hero';
+@import 'about';
+@import 'work';
+@import 'services';
+@import 'clients';
+@import 'contact';
+@import 'blog-preview';
+@import 'footer';

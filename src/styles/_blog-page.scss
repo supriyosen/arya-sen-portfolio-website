@@ -1,0 +1,241 @@
+// ─── Blog Page ───
+
+.blog-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $font-body;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $text-muted;
+    margin-bottom: 40px;
+    transition: color $duration-fast $ease-out-expo, gap $duration-fast $ease-out-expo;
+
+    svg {
+        transition: transform $duration-fast $ease-out-expo;
+    }
+
+    &:hover {
+        color: $text-primary;
+        gap: 12px;
+
+        svg {
+            transform: translateX(-3px);
+        }
+    }
+}
+
+.blog-hero {
+    position: relative;
+    padding: clamp(140px, 18vh, 220px) 0 clamp(60px, 8vh, 100px);
+    background: $bg-primary;
+
+    &__container {
+        width: $container-width;
+        margin: 0 auto;
+        padding-left: clamp(60px, 6vw, 100px);
+
+        @media (max-width: $bp-tablet) {
+            padding-left: 0;
+        }
+    }
+
+    &__label {
+        margin-bottom: 24px;
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: clamp(3.5rem, 9vw, 8rem);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        margin-bottom: 24px;
+    }
+
+    &__sub {
+        font-family: $font-body;
+        font-size: clamp(1rem, 1.3vw, 1.2rem);
+        color: $text-muted;
+        max-width: 480px;
+        line-height: 1.7;
+    }
+}
+
+// ─── Category Filters ───
+.blog-filters {
+    width: $container-width;
+    margin: 0 auto clamp(48px, 6vh, 72px);
+    padding-left: clamp(60px, 6vw, 100px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @media (max-width: $bp-tablet) {
+        padding-left: 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        &::-webkit-scrollbar { display: none; }
+    }
+
+    &__btn {
+        font-family: $font-body;
+        font-size: 0.8rem;
+        font-weight: 400;
+        padding: 10px 22px;
+        border-radius: $radius-pill;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: $text-muted;
+        background: transparent;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: all $duration-fast $ease-out-expo;
+
+        &.active,
+        &:hover {
+            background: $accent;
+            border-color: $accent;
+            color: #fff;
+        }
+    }
+}
+
+// ─── Blog Grid ───
+.blog-grid {
+    width: $container-width;
+    margin: 0 auto;
+    padding-left: clamp(60px, 6vw, 100px);
+    padding-bottom: clamp(80px, 10vw, 160px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+
+    @media (max-width: $bp-desktop) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $bp-tablet) {
+        padding-left: 0;
+        grid-template-columns: 1fr;
+    }
+}
+
+// ─── Blog Card ───
+.blog-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 36px 36px;
+    background: $bg-primary;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity $duration-mid $ease-out-expo,
+                transform $duration-mid $ease-out-expo,
+                background $duration-fast,
+                border-color $duration-fast;
+    cursor: pointer;
+
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &:hover {
+        background: $bg-surface;
+        border-color: rgba(255, 255, 255, 0.12);
+
+        .blog-card__arrow {
+            transform: translate(4px, -4px);
+            color: $accent;
+        }
+
+        .blog-card__number {
+            color: $accent;
+        }
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 32px;
+    }
+
+    &__number {
+        font-family: $font-display;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.15);
+        letter-spacing: 0.05em;
+        transition: color $duration-fast;
+    }
+
+    &__tag {
+        font-family: $font-body;
+        font-size: 0.65rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        padding: 5px 12px;
+        border-radius: $radius-pill;
+        background: rgba($accent, 0.15);
+        color: lighten(#2107B4, 40%);
+        border: 1px solid rgba($accent, 0.25);
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        color: $text-primary;
+        margin-bottom: 16px;
+        flex: 1;
+    }
+
+    &__excerpt {
+        font-family: $font-body;
+        font-size: 0.875rem;
+        line-height: 1.7;
+        color: $text-muted;
+        margin-bottom: 36px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    &__meta {
+        font-family: $font-body;
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.25);
+        letter-spacing: 0.05em;
+    }
+
+    &__arrow {
+        font-family: $font-display;
+        font-size: 1.1rem;
+        color: $text-muted;
+        transition: transform $duration-mid $ease-out-expo, color $duration-fast;
+    }
+}
+
+// ─── Blog — "Coming Soon" empty state ───
+.blog-card--hidden {
+    display: none;
+}

@@ -1,0 +1,40 @@
+// ─── Global Utility Classes ───
+
+// Reveal animation base
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity $duration-slow $ease-out-expo, transform $duration-slow $ease-out-expo;
+
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal-stagger {
+    >* {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity $duration-mid $ease-out-expo, transform $duration-mid $ease-out-expo;
+    }
+
+    &.is-visible>* {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @for $i from 1 through 10 {
+        &.is-visible>*:nth-child(#{$i}) {
+            transition-delay: #{$i * 0.08}s;
+        }
+    }
+}
+
+// Separator line
+.separator {
+    width: $container-width;
+    margin: 0 auto;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+}

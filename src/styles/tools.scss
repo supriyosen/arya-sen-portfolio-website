@@ -1,0 +1,10 @@
+// ─── Tools Page CSS Entry ───
+// Imports only the partials needed — skips hero, work, services, clients
+
+@import 'variables';
+@import 'reset';
+@import 'typography';
+@import 'utilities';
+@import 'nav';
+@import 'tools-page';
+@import 'footer';

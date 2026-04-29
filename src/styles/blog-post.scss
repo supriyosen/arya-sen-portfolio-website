@@ -1,0 +1,857 @@
+// ─── Blog Post Page — Full SCSS Entry ───
+
+@import 'variables';
+@import 'reset';
+@import 'typography';
+@import 'utilities';
+@import 'nav';
+
+// ─── Footer ───
+.footer {
+    padding: 40px 0;
+    text-align: center;
+    background: $bg-surface;
+
+    &__text {
+        font-size: 0.8rem;
+        color: $text-muted;
+        line-height: 1.6;
+
+        .footer-accent {
+            font-family: $font-accent;
+            color: $accent;
+        }
+    }
+}
+
+// ─── Reading Progress Bar ───
+#read-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: $accent;
+    z-index: 99999;
+    transition: width 0.1s linear;
+}
+
+// ─── Post Back Link ───
+.post-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $font-body;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $text-muted;
+    transition: color $duration-fast $ease-out-expo;
+
+    svg { transition: transform $duration-fast $ease-out-expo; }
+
+    &:hover {
+        color: $text-primary;
+        svg { transform: translateX(-4px); }
+    }
+}
+
+// ─── Article Hero ───
+.post-hero {
+    padding: clamp(100px, 14vh, 160px) 0 0;
+    background: $bg-primary;
+
+    &__inner {
+        width: min(90%, 900px);
+        margin: 0 auto;
+        padding-bottom: clamp(40px, 5vh, 64px);
+    }
+
+    &__eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 28px;
+    }
+
+    &__tag {
+        font-family: $font-body;
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        padding: 5px 14px;
+        border-radius: $radius-pill;
+        background: rgba($accent, 0.15);
+        color: lighten(#2107B4, 45%);
+        border: 1px solid rgba($accent, 0.3);
+    }
+
+    &__meta {
+        font-family: $font-body;
+        font-size: 0.72rem;
+        color: rgba($text-primary, 0.3);
+        letter-spacing: 0.06em;
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: clamp(2.4rem, 6vw, 5rem);
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        color: $text-primary;
+        margin-bottom: 24px;
+    }
+
+    &__deck {
+        font-family: $font-body;
+        font-size: clamp(1rem, 1.4vw, 1.2rem);
+        line-height: 1.7;
+        color: rgba($text-primary, 0.65);
+        max-width: 680px;
+        margin-bottom: 36px;
+    }
+
+    &__author {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding-top: 28px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    &__avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: $bg-card;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        flex-shrink: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__author-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        strong {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: $text-primary;
+        }
+
+        span {
+            font-size: 0.72rem;
+            color: $text-muted;
+        }
+    }
+}
+
+// ─── Hero Image ───
+.post-hero-image {
+    width: min(90%, 900px);
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    position: relative;
+    margin-bottom: clamp(48px, 8vh, 96px);
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+.post-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: $bg-surface;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 32px;
+    text-align: center;
+
+    &__label {
+        font-family: $font-body;
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: $accent;
+        opacity: 0.7;
+    }
+
+    &__prompt {
+        font-family: $font-body;
+        font-size: 0.78rem;
+        line-height: 1.6;
+        color: rgba($text-primary, 0.35);
+        max-width: 520px;
+        font-style: italic;
+    }
+
+    &__icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px dashed rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.2);
+        margin-bottom: 4px;
+    }
+}
+
+// ─── Article Body ───
+.post-body {
+    width: min(90%, 720px);
+    margin: 0 auto;
+    padding-bottom: clamp(80px, 10vw, 140px);
+
+    // ── Reveal animation ──
+    .post-reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s $ease-out-expo, transform 0.7s $ease-out-expo;
+
+        &.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+// ─── Article Typography ───
+.post-lead {
+    font-family: $font-body;
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.75;
+    color: rgba($text-primary, 0.85);
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.post-p {
+    font-family: $font-body;
+    font-size: clamp(0.9rem, 1.1vw, 1.02rem);
+    line-height: 1.85;
+    color: rgba($text-primary, 0.7);
+    margin-bottom: 28px;
+
+    strong {
+        color: $text-primary;
+        font-weight: 600;
+    }
+
+    a {
+        color: lighten(#2107B4, 40%);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: color $duration-fast;
+
+        &:hover { color: $text-primary; }
+    }
+}
+
+.post-h2 {
+    font-family: $font-display;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: $text-primary;
+    margin: 72px 0 24px;
+    line-height: 1.15;
+}
+
+.post-h3 {
+    font-family: $font-display;
+    font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+    font-weight: 700;
+    color: $text-primary;
+    margin: 40px 0 14px;
+    letter-spacing: -0.015em;
+}
+
+// ─── Pull Quote ───
+.post-pullquote {
+    margin: 56px 0;
+    padding: 32px 40px;
+    border-left: 3px solid $accent;
+    background: rgba($accent, 0.04);
+    border-radius: 0 $radius-md $radius-md 0;
+
+    p {
+        font-family: $font-display;
+        font-size: clamp(1.2rem, 2vw, 1.6rem);
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: -0.02em;
+        color: $text-primary;
+        margin: 0 0 12px;
+        font-style: italic;
+    }
+
+    cite {
+        font-family: $font-body;
+        font-size: 0.75rem;
+        color: $text-muted;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-style: normal;
+    }
+}
+
+// ─── Callout Box ───
+.post-callout {
+    background: $bg-surface;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: $radius-md;
+    padding: 28px 32px;
+    margin: 40px 0;
+
+    &__label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: $accent;
+        margin-bottom: 12px;
+        display: block;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: rgba($text-primary, 0.7);
+        margin: 0;
+    }
+}
+
+// ─── Section Divider ───
+.post-divider {
+    width: 48px;
+    height: 2px;
+    background: $accent;
+    margin: 64px 0;
+    opacity: 0.5;
+}
+
+// ─── Inline Image (in article body) ───
+.post-image {
+    margin: 48px 0;
+    border-radius: $radius-md;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    aspect-ratio: 16 / 9;
+    position: relative;
+    background: $bg-surface;
+
+    &--tall { aspect-ratio: 4 / 3; }
+
+    &__caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 12px 20px;
+        background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        font-size: 0.7rem;
+        color: rgba($text-primary, 0.5);
+        letter-spacing: 0.05em;
+    }
+}
+
+// ─── Stat Bars Chart ───
+.stat-section {
+    margin: 56px -40px;
+    background: $bg-surface;
+    border-radius: $radius-lg;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    @media (max-width: $bp-tablet) {
+        margin: 40px 0;
+    }
+}
+
+.stat-section-title {
+    font-family: $font-body;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: $text-muted;
+    margin-bottom: 32px;
+}
+
+.stat-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stat-bar {
+    display: grid;
+    grid-template-columns: 200px 1fr 60px;
+    align-items: center;
+    gap: 16px;
+
+    @media (max-width: $bp-tablet) {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    &__label {
+        font-family: $font-body;
+        font-size: 0.78rem;
+        color: rgba($text-primary, 0.7);
+        white-space: nowrap;
+
+        @media (max-width: $bp-tablet) { white-space: normal; }
+    }
+
+    &__track {
+        height: 6px;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    &__fill {
+        height: 100%;
+        border-radius: 3px;
+        background: $accent;
+        width: 0%;
+        transition: width 1.2s $ease-out-expo;
+    }
+
+    &__val {
+        font-family: $font-display;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: $text-primary;
+        text-align: right;
+
+        @media (max-width: $bp-tablet) { text-align: left; }
+    }
+}
+
+// ─── Key Stats Grid ───
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin: 48px -40px;
+
+    @media (max-width: $bp-tablet) {
+        grid-template-columns: 1fr;
+        margin: 40px 0;
+    }
+}
+
+.stat-card {
+    background: $bg-surface;
+    padding: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    &:first-child { border-radius: $radius-md 0 0 0; }
+    &:nth-child(2) { border-radius: 0 $radius-md 0 0; }
+    &:nth-child(3) { border-radius: 0 0 0 $radius-md; }
+    &:last-child { border-radius: 0 0 $radius-md 0; }
+
+    @media (max-width: $bp-tablet) {
+        border-radius: $radius-sm !important;
+    }
+
+    &__num {
+        font-family: $font-display;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        color: $accent;
+        letter-spacing: -0.03em;
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+
+    &__label {
+        font-family: $font-body;
+        font-size: 0.8rem;
+        color: rgba($text-primary, 0.6);
+        line-height: 1.5;
+    }
+
+    &__source {
+        display: block;
+        font-size: 0.62rem;
+        color: $text-muted;
+        margin-top: 8px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+}
+
+// ─── Numbered Steps ───
+.post-steps {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.post-step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    align-items: start;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:last-child { border-bottom: none; }
+
+    &__num {
+        font-family: $font-display;
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: $accent;
+        letter-spacing: 0.1em;
+        padding-top: 3px;
+    }
+
+    &__content {
+        h3 {
+            font-family: $font-display;
+            font-size: 1rem;
+            font-weight: 700;
+            color: $text-primary;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 0.88rem;
+            line-height: 1.75;
+            color: rgba($text-primary, 0.62);
+            margin: 0;
+        }
+    }
+}
+
+// ─── Tool Grid ───
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin: 40px 0;
+
+    @media (max-width: $bp-tablet) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tool-card {
+    background: $bg-surface;
+    padding: 24px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color $duration-fast, background $duration-fast;
+
+    &:hover {
+        background: $bg-card;
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    &__name {
+        font-family: $font-display;
+        font-size: 1rem;
+        font-weight: 700;
+        color: $text-primary;
+        margin-bottom: 6px;
+    }
+
+    &__for {
+        font-size: 0.75rem;
+        color: $text-muted;
+        margin-bottom: 16px;
+        line-height: 1.5;
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    &__tag {
+        font-size: 0.6rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        padding: 3px 10px;
+        border-radius: $radius-pill;
+        background: rgba(255, 255, 255, 0.05);
+        color: rgba($text-primary, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        &--accent {
+            background: rgba($accent, 0.12);
+            color: lighten(#2107B4, 40%);
+            border-color: rgba($accent, 0.25);
+        }
+    }
+}
+
+// ─── Comparison Chart (time to ship) ───
+.compare-chart {
+    margin: 48px -40px;
+    background: $bg-surface;
+    border-radius: $radius-lg;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    @media (max-width: $bp-tablet) { margin: 40px 0; }
+
+    &__title {
+        font-family: $font-body;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: $text-muted;
+        margin-bottom: 32px;
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 160px 1fr 80px;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 20px;
+
+        @media (max-width: $bp-tablet) {
+            grid-template-columns: 1fr;
+            gap: 6px;
+        }
+    }
+
+    &__label {
+        font-size: 0.8rem;
+        color: rgba($text-primary, 0.6);
+    }
+
+    &__bar-wrap {
+        height: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    &__bar {
+        height: 100%;
+        border-radius: 5px;
+        transition: width 1.4s $ease-out-expo;
+
+        &--old { background: rgba(255, 255, 255, 0.15); width: 100%; }
+        &--new { background: $accent; width: 8%; }
+    }
+
+    &__val {
+        font-family: $font-display;
+        font-size: 0.88rem;
+        font-weight: 700;
+        text-align: right;
+
+        &--old { color: rgba($text-primary, 0.4); }
+        &--new { color: $accent; }
+    }
+}
+
+// ─── Mistake List ───
+.mistake-list {
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mistake-item {
+    padding: 24px 28px;
+    background: $bg-surface;
+    border-radius: $radius-md;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-left: 3px solid rgba(255, 255, 255, 0.12);
+
+    h3 {
+        font-family: $font-display;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: $text-primary;
+        margin-bottom: 8px;
+    }
+
+    p {
+        font-size: 0.85rem;
+        line-height: 1.7;
+        color: rgba($text-primary, 0.6);
+        margin: 0;
+    }
+}
+
+// ─── Author Bio ───
+.post-author-bio {
+    margin-top: clamp(64px, 10vw, 100px);
+    padding: 40px;
+    background: $bg-surface;
+    border-radius: $radius-lg;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+
+    @media (max-width: $bp-tablet) {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: $bg-card;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        flex-shrink: 0;
+        overflow: hidden;
+
+        img { width: 100%; height: 100%; object-fit: cover; }
+    }
+
+    &__content {
+        flex: 1;
+    }
+
+    &__label {
+        font-size: 0.62rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: $accent;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    &__name {
+        font-family: $font-display;
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: $text-primary;
+        margin-bottom: 10px;
+    }
+
+    &__desc {
+        font-size: 0.85rem;
+        line-height: 1.7;
+        color: rgba($text-primary, 0.6);
+    }
+}
+
+// ─── Related Posts ───
+.post-related {
+    padding: clamp(64px, 8vw, 100px) 0;
+    background: $bg-primary;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+    &__inner {
+        width: min(90%, 900px);
+        margin: 0 auto;
+    }
+
+    &__heading {
+        font-family: $font-body;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: $text-muted;
+        margin-bottom: 32px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+
+        @media (max-width: $bp-tablet) { grid-template-columns: 1fr; }
+    }
+}
+
+.related-card {
+    display: block;
+    padding: 32px;
+    background: $bg-surface;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background $duration-fast, border-color $duration-fast;
+
+    &:first-child { border-radius: $radius-md 0 0 $radius-md; }
+    &:last-child { border-radius: 0 $radius-md $radius-md 0; }
+
+    @media (max-width: $bp-tablet) {
+        border-radius: $radius-sm !important;
+    }
+
+    &:hover {
+        background: $bg-card;
+        border-color: rgba(255, 255, 255, 0.12);
+
+        .related-card__arrow { transform: translate(3px, -3px); color: $accent; }
+    }
+
+    &__tag {
+        font-size: 0.62rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: rgba($accent, 0.8);
+        margin-bottom: 12px;
+        display: block;
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: 1rem;
+        font-weight: 700;
+        color: $text-primary;
+        line-height: 1.3;
+        margin-bottom: 16px;
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__meta {
+        font-size: 0.7rem;
+        color: $text-muted;
+    }
+
+    &__arrow {
+        font-size: 1rem;
+        color: $text-muted;
+        transition: transform $duration-mid $ease-out-expo, color $duration-fast;
+    }
+}

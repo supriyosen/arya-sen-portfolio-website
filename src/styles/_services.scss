@@ -1,0 +1,114 @@
+// ─── Services Section — Compact List Layout ───
+.services {
+    position: relative;
+    padding: clamp(60px, 8vw, 100px) 0;
+
+    &__container {
+        width: $container-width;
+        margin: 0 auto;
+        padding-left: clamp(60px, 6vw, 100px);
+
+        @media (max-width: $bp-tablet) {
+            padding-left: 0;
+        }
+    }
+
+    &__header {
+        margin-bottom: 48px;
+    }
+
+    &__title {
+        margin-bottom: 8px;
+    }
+
+    // List of service rows
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // Each service row
+    &__item {
+        display: grid;
+        grid-template-columns: 48px 1fr 1.4fr;
+        gap: 24px;
+        align-items: baseline;
+        padding: 28px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        transition: all $duration-mid $ease-out-expo;
+
+        // Hidden by default, revealed by IntersectionObserver
+        opacity: 0;
+        transform: translateY(20px);
+
+        &.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        // Stagger delays
+        &:nth-child(1).is-visible {
+            transition-delay: 0s;
+        }
+
+        &:nth-child(2).is-visible {
+            transition-delay: 0.1s;
+        }
+
+        &:nth-child(3).is-visible {
+            transition-delay: 0.2s;
+        }
+
+        &:nth-child(4).is-visible {
+            transition-delay: 0.3s;
+        }
+
+        &:last-child {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        &:hover {
+            padding-left: 12px;
+
+            .services__item-number {
+                color: $accent;
+            }
+
+            .services__item-title {
+                color: $accent;
+            }
+        }
+
+        @media (max-width: $bp-tablet) {
+            grid-template-columns: 36px 1fr;
+            gap: 12px;
+        }
+    }
+
+    &__item-number {
+        font-family: $font-body;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: $text-muted;
+        letter-spacing: 0.05em;
+        transition: color $duration-mid;
+    }
+
+    &__item-title {
+        font-family: $font-display;
+        font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+        font-weight: 700;
+        line-height: 1.3;
+        transition: color $duration-mid;
+    }
+
+    &__item-desc {
+        font-size: 0.85rem;
+        line-height: 1.6;
+        color: $text-muted;
+
+        @media (max-width: $bp-tablet) {
+            grid-column: 1 / -1;
+        }
+    }
+}

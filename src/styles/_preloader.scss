@@ -1,0 +1,78 @@
+// ─── Preloader ───
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: $bg-primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s $ease-out-expo, visibility 0.8s;
+
+    &.preloader--done {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    &__name {
+        font-family: $font-display;
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: $text-primary;
+        overflow: hidden;
+
+        span {
+            display: inline-block;
+            transform: translateY(100%);
+            animation: preloaderReveal 0.6s $ease-out-expo forwards;
+        }
+
+        @for $i from 1 through 15 {
+            span:nth-child(#{$i}) {
+                animation-delay: #{$i * 0.04}s;
+            }
+        }
+    }
+
+    &__bar {
+        width: 120px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.1);
+        margin-top: 32px;
+        border-radius: 2px;
+        overflow: hidden;
+
+        &-fill {
+            height: 100%;
+            width: 0;
+            background: $accent;
+            border-radius: 2px;
+            animation: preloaderBar 1.8s $ease-in-out forwards;
+            animation-delay: 0.3s;
+        }
+    }
+}
+
+@keyframes preloaderReveal {
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes preloaderBar {
+    0% {
+        width: 0;
+    }
+
+    60% {
+        width: 80%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}

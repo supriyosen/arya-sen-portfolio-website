@@ -1,0 +1,13 @@
+// ─── Clients — Canvas ribbon ticker ───
+.clients {
+    position: relative;
+    height: clamp(300px, 44vh, 480px);
+    margin: -1px 0; // kill subpixel gaps at section boundaries
+    background: linear-gradient(to bottom, #060606 50%, #111111 50%);
+
+    &__canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}

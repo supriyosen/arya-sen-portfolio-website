@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow:hidden;">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supriyo Sen — Creative Technologist | Retouching · AI · 3D · Code</title>
+  <meta name="description"
+    content="Supriyo Sen is a Creative Technologist with 16+ years of retouching mastery, now crafting AI-powered visuals, 3D worlds, and coded experiences. Co-founder of Bufferrring." />
+  <meta property="og:title" content="Supriyo Sen — Creative Technologist" />
+  <meta property="og:description" content="16+ years of visual mastery. From retouching to AI filmmaking." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@300;400;500;600&family=Jaro&family=Syne:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Runs before anything else: kill scroll restoration and lock position -->
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+  </script>
+
+  <!-- Critical inline CSS to prevent FOUC — must cover page AND preloader before external CSS loads -->
+  <style>
+    html, body {
+      background: #060606;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* Preloader covers everything before external CSS loads */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: #060606;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hide chrome until JS reveals it after preloader */
+    .nav,
+    .footer {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════ PRELOADER ════════════════ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__name" aria-hidden="true">
+      <span>A</span><span>R</span><span>Y</span><span>A</span>
+      <span>&nbsp;</span>
+      <span>S</span><span>E</span><span>N</span>
+    </div>
+    <div class="preloader__bar">
+      <div class="preloader__bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- ════════════════ NAVIGATION ════════════════ -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav__logo" aria-label="Arya Sen — Home">
+      <img src="/logo-arya-white.png" alt="Arya Sen logo" />
+    </a>
+    <div class="nav__links">
+      <a href="#work" class="nav__link" data-nav="work">Work</a>
+      <a href="#services" class="nav__link" data-nav="services">Services</a>
+      <a href="#clients" class="nav__link" data-nav="clients">Clients</a>
+      <a href="/blog.html" class="nav__link">Blog</a>
+      <a href="/tools.html" class="nav__link">Tools</a>
+    </div>
+    <a href="#contact" class="nav__cta">Let's Talk</a>
+  </nav>
+
+  <!-- ════════════════ MAIN CONTENT ════════════════ -->
+  <main>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero" id="hero">
+
+      <!-- Fullscreen banner video background -->
+      <div class="hero__bg" aria-hidden="true">
+        <video class="hero__video" id="heroBgVideo"
+               muted loop playsinline preload="auto"
+               poster="/banner-poster.jpg">
+          <source src="/banner-video.mp4" type="video/mp4" />
+        </video>
+        <div class="hero__bg-grain"></div>
+      </div>
+
+      <div class="hero__content">
+        <!-- Eyebrow pill -->
+        <div class="hero__label label">Retouching & Compositing · AI Campaigns · Vibe Coding</div>
+
+        <!-- Main headline -->
+        <h1 class="hero__title">ARYA SEN<span class="title-period">.</span></h1>
+
+        <!-- Divider rule -->
+        <div class="hero__rule" aria-hidden="true"></div>
+
+        <!-- Bottom meta row: stat + description -->
+        <div class="hero__meta">
+          <div class="hero__stat">
+            <span class="hero__stat-num">16<sup>+</sup></span>
+            <span class="hero__stat-label">Years of<br />Visual Craft</span>
+          </div>
+          <div class="hero__meta-sep" aria-hidden="true"></div>
+          <p class="hero__subtitle">
+            <strong>Retouching &amp; compositing.</strong> AI <strong>brand campaigns</strong>, <strong>brand books</strong>,<br />
+            <strong>social content</strong>, <strong>web apps, SaaS &amp; tools</strong> — built for <strong>brands and creators</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero__scroll-indicator">
+        <div class="scroll-line"></div>
+        <span class="scroll-text">Scroll</span>
+      </div>
+
+    </section>
+
+    <!-- ─── ABOUT / THE STORY ─── -->
+    <section class="about" id="about">
+      <div class="section-label">The Story</div>
+      <div class="about__container">
+        <div class="about__text reveal">
+          <p>
+            I've spent over sixteen years
+            <span class="text-muted-inline">making images lie beautifully</span>
+            — retouching for the world's biggest brands, compositing impossible scenes
+            <span class="text-muted-inline">frame by frame.</span>
+            Then AI arrived, and everything changed.
+            <span class="text-muted-inline">I didn't resist it. I absorbed it.</span>
+            Today, I merge decades of pixel-level discipline with generative AI,
+            3D environments, and code.
+            <span class="text-muted-inline">I build things — commercials, apps, websites, visual systems —</span>
+            that shouldn't exist yet,
+            <span class="text-muted-inline">but do.</span>
+          </p>
+          <div class="about__agency">
+            <div class="agency-label label">Agency</div>
+            <div class="agency-name">Bufferrring</div>
+            <div class="agency-role">Co-founder & Creative Director</div>
+          </div>
+        </div>
+        <div class="about__counter reveal">
+          <div class="counter-number" id="yearCounter">0</div>
+          <div class="counter-label">years of craft</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <!-- ─── SELECTED WORK ─── -->
+    <section class="work" id="work">
+      <div class="section-label">Selected Work</div>
+      <div class="work__header reveal">
+        <h2 class="work__title heading-lg">The Work Speaks.</h2>
+        <p class="work__subtitle body-lg">A curated selection across retouching, AI, 3D, code, and art.</p>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="work__filters reveal-stagger" id="workFilters">
+        <button class="work__filter-btn active" data-category="retouching">Retouching & Compositing</button>
+        <button class="work__filter-btn" data-category="ai-commercials">AI Commercials & Film</button>
+        <button class="work__filter-btn" data-category="ai-design">AI Design</button>
+        <button class="work__filter-btn" data-category="vibe-coding">AI Vibe Coding</button>
+        <button class="work__filter-btn" data-category="art">Artistic Pursuits</button>
+      </div>
+
+      <!-- Galleries (one per category) -->
+      <div class="work__gallery active" data-gallery="retouching" id="gallery-retouching">
+        <div class="work__scroll-container"></div>
+      </div>
+      <div class="work__gallery" data-gallery="ai-commercials" id="gallery-ai-commercials">
+        <div class="work__scroll-container"></div>
+      </div>
+      <div class="work__gallery work__gallery--horizontal" data-gallery="ai-design" id="gallery-ai-design">
+        <div class="work__scroll-container"></div>
+      </div>
+      <div class="work__gallery" data-gallery="vibe-coding" id="gallery-vibe-coding">
+        <div class="work__scroll-container"></div>
+      </div>
+      <div class="work__gallery" data-gallery="art" id="gallery-art">
+        <div class="work__scroll-container"></div>
+      </div>
+
+      <div class="work__scroll-hint">
+        <div class="scroll-hint-line"></div>
+        <span>Drag to explore</span>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <!-- ─── SERVICES ─── -->
+    <section class="services" id="services">
+      <div class="section-label">What I Do</div>
+      <div class="services__container">
+        <div class="services__header reveal">
+          <h2 class="services__title heading-lg">Capabilities.</h2>
+          <p class="body-lg">Bridging analog craft and digital intelligence.</p>
+        </div>
+        <div class="services__list">
+          <div class="services__item">
+            <span class="services__item-number">01</span>
+            <h3 class="services__item-title">Creative Retouching</h3>
+            <p class="services__item-desc">Pixel-perfect compositing for campaigns that demand perfection. High-end
+              beauty, product, and advertising retouching trusted by global brands.</p>
+          </div>
+          <div class="services__item">
+            <span class="services__item-number">02</span>
+            <h3 class="services__item-title">AI Production</h3>
+            <p class="services__item-desc">From concept to commercial — AI-powered visuals at the speed of thought.
+              Generative imagery, AI-driven film production, and concept development.</p>
+          </div>
+          <div class="services__item">
+            <span class="services__item-number">03</span>
+            <h3 class="services__item-title">Vibe Coding</h3>
+            <p class="services__item-desc">Websites, apps, and systems that feel alive — built with AI-first
+              development. Interactive experiences and creative tools coded with generative assistance.</p>
+          </div>
+          <div class="services__item">
+            <span class="services__item-number">04</span>
+            <h3 class="services__item-title">3D & Motion</h3>
+            <p class="services__item-desc">Immersive environments, product renders, and motion design. Stylized 3D
+              assets, architectural visualization, and dynamic motion graphics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CLIENTS ─── -->
+    <section class="clients" id="clients">
+      <canvas class="clients__canvas" id="clients-canvas"
+              aria-label="Trusted by Netflix, Oppo, Vivo, Redmi, Amazon Prime, Livon, Philips, Levi's, Lifestyle, Tata, Reebok, Reliance, IPL"></canvas>
+    </section>
+
+    <!-- ─── CONTACT ─── -->
+    <section class="contact" id="contact">
+      <div class="section-label">Get in Touch</div>
+      <div class="contact__container">
+        <h2 class="contact__headline reveal">
+          Got a wild idea?<br />
+          Let's make it real.
+        </h2>
+        <div class="contact__content">
+          <form class="contact__form reveal" id="contactForm" onsubmit="return false;">
+            <div class="contact__field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="contact__field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="contact__field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="contact__submit">Send Message</button>
+          </form>
+          <div class="contact__socials reveal-stagger">
+            <a href="https://www.instagram.com/_arya.sen/" target="_blank" rel="noopener" class="contact__social-link">
+              Instagram <span class="social-arrow">↗</span>
+            </a>
+            <a href="https://www.behance.net/supriyosen1" target="_blank" rel="noopener" class="contact__social-link">
+              Behance <span class="social-arrow">↗</span>
+            </a>
+            <a href="mailto:aryaknj@gmail.com" class="contact__social-link">
+              Email <span class="social-arrow">↗</span>
+            </a>
+            <a href="https://wa.me/919851202658" target="_blank" rel="noopener" class="contact__social-link">
+              WhatsApp <span class="social-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── BLOG PREVIEW ─── -->
+    <section class="blog-preview" id="blog">
+      <div class="blog-preview__container">
+        <div class="blog-preview__header reveal">
+          <div class="section-label">Writing</div>
+          <div class="blog-preview__heading-row">
+            <h2 class="blog-preview__title heading-lg">From the Studio.</h2>
+            <a href="/blog.html" class="blog-preview__see-all">All posts ↗</a>
+          </div>
+        </div>
+        <div class="blog-preview__list reveal-stagger">
+          <a href="/blog.html" class="blog-preview__item">
+            <div class="blog-preview__item-left">
+              <span class="blog-preview__tag">AI Production</span>
+              <h3 class="blog-preview__item-title">How I Shot a Commercial Without a Camera</h3>
+            </div>
+            <div class="blog-preview__item-right">
+              <span class="blog-preview__meta">Apr 2026 · 8 min read</span>
+              <span class="blog-preview__arrow">↗</span>
+            </div>
+          </a>
+          <a href="/blog.html" class="blog-preview__item">
+            <div class="blog-preview__item-left">
+              <span class="blog-preview__tag">Retouching</span>
+              <h3 class="blog-preview__item-title">The Art of Invisible Retouching</h3>
+            </div>
+            <div class="blog-preview__item-right">
+              <span class="blog-preview__meta">Mar 2026 · 5 min read</span>
+              <span class="blog-preview__arrow">↗</span>
+            </div>
+          </a>
+          <a href="/blog-vibe-coding.html" class="blog-preview__item">
+            <div class="blog-preview__item-left">
+              <span class="blog-preview__tag">Vibe Coding</span>
+              <h3 class="blog-preview__item-title">Vibe Coding: The New Creative Superpower</h3>
+            </div>
+            <div class="blog-preview__item-right">
+              <span class="blog-preview__meta">Mar 2026 · 6 min read</span>
+              <span class="blog-preview__arrow">↗</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <!-- Link columns -->
+      <div class="footer__grid">
+        <div class="footer__col">
+          <span class="footer__col-label">Navigate</span>
+          <a href="#work" class="footer__link">Work</a>
+          <a href="#services" class="footer__link">Services</a>
+          <a href="#clients" class="footer__link">Clients</a>
+          <a href="/blog.html" class="footer__link">Blog</a>
+          <a href="/tools.html" class="footer__link">Tools</a>
+          <a href="#contact" class="footer__link">Contact</a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-label">Connect</span>
+          <a href="https://www.instagram.com/_arya.sen/" target="_blank" rel="noopener" class="footer__link">Instagram <span>↗</span></a>
+          <a href="https://www.behance.net/supriyosen1" target="_blank" rel="noopener" class="footer__link">Behance <span>↗</span></a>
+          <a href="mailto:aryaknj@gmail.com" class="footer__link">Email <span>↗</span></a>
+          <a href="https://wa.me/919851202658" target="_blank" rel="noopener" class="footer__link">WhatsApp <span>↗</span></a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-label">Studio</span>
+          <p class="footer__studio-desc">Co-founder &amp; Creative Director</p>
+          <p class="footer__studio-name">Bufferrring</p>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Supriyo Sen. Crafted with <span class="footer-accent">code &amp; caffeine</span>.</p>
+        <a href="#hero" class="footer__back-top">Back to top ↑</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

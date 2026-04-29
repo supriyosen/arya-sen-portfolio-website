@@ -1,0 +1,283 @@
+// ─── Hero Section — Cinematic Editorial (centered) ───
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: clamp(60px, 8vh, 88px) clamp(36px, 6vw, 96px) clamp(96px, 11vh, 128px);
+    overflow: hidden;
+    background: $bg-primary;
+
+    // ── Fullscreen video background ────────────────────────────────────────────
+    &__bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    &__video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.78;
+        will-change: opacity;
+    }
+
+    // Animated film grain overlay — fine layer
+    &__bg-grain {
+        position: absolute;
+        inset: -40%;
+        width: 180%;
+        height: 180%;
+        z-index: 2;
+        pointer-events: none;
+        opacity: 0.15;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+        background-size: 256px 256px;
+        animation: hero-grain 0.55s steps(1) infinite;
+
+        // Coarse grain — larger clumps, different speed so layers never sync
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.5;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.40' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g2)'/%3E%3C/svg%3E");
+            background-size: 512px 512px;
+            animation: hero-grain-coarse 0.73s steps(1) infinite;
+        }
+    }
+
+    // Vignette + bottom dissolve
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+            radial-gradient(ellipse at center, transparent 55%, rgba(6, 6, 6, 0.32) 100%),
+            linear-gradient(to bottom,
+                rgba(6, 6, 6, 0.22) 0%,
+                transparent 12%,
+                transparent 70%,
+                rgba(6, 6, 6, 0.45) 86%,
+                rgba(6, 6, 6, 0.85) 96%,
+                #060606 100%);
+    }
+
+    // ── Content ────────────────────────────────────────────────────────────────
+    &__content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    // ── Eyebrow pill ──────────────────────────────────────────────────────────
+    &__label {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 18px;
+        border-radius: $radius-pill;
+        background: rgba(6, 6, 6, 0.65);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(240, 237, 230, 0.13);
+        letter-spacing: 0.10em;
+        margin-bottom: clamp(14px, 2.2vh, 24px);
+        opacity: 0;
+    }
+
+    // ── Main headline (single line, centered) ─────────────────────────────────
+    &__title {
+        font-family: $font-display;
+        font-size: clamp(2.2rem, 6.8vw, 6.5rem);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.035em;
+        margin: 0 0 clamp(20px, 3vh, 36px);
+        color: $text-primary;
+        text-transform: uppercase;
+        white-space: nowrap;
+        visibility: hidden;
+
+        .title-period {
+            color: $brand-orange;
+            font-style: normal;
+            margin-left: 0.02em;
+        }
+    }
+
+    // ── Horizontal divider ─────────────────────────────────────────────────────
+    &__rule {
+        width: min(100%, 720px);
+        height: 1px;
+        background: linear-gradient(to right,
+            transparent 0%,
+            rgba(240, 237, 230, 0.18) 50%,
+            transparent 100%);
+        margin: 0 auto clamp(16px, 2.2vh, 26px);
+        transform-origin: center center;
+        transform: scaleX(0);
+    }
+
+    // ── Bottom meta row ────────────────────────────────────────────────────────
+    &__meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(24px, 4vw, 56px);
+        opacity: 0;
+    }
+
+    &__stat {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+
+        &-num {
+            font-family: $font-display;
+            font-size: clamp(1.8rem, 3.2vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: $brand-orange;
+
+            sup {
+                font-size: 0.42em;
+                font-weight: 800;
+                vertical-align: super;
+                letter-spacing: 0;
+                line-height: 0;
+            }
+        }
+
+        &-label {
+            font-family: $font-body;
+            font-size: clamp(0.55rem, 0.7vw, 0.65rem);
+            font-weight: 500;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: rgba(240, 237, 230, 0.62);
+            line-height: 1.6;
+            text-align: center;
+        }
+    }
+
+    &__meta-sep {
+        width: 1px;
+        height: 36px;
+        background: rgba($text-primary, 0.14);
+        flex-shrink: 0;
+        margin-top: 4px;
+    }
+
+    &__subtitle {
+        font-family: $font-body;
+        font-size: clamp(0.82rem, 1.0vw, 0.96rem);
+        color: rgba(240, 237, 230, 0.62);
+        line-height: 1.7;
+        margin: 0;
+
+        strong {
+            font-weight: 600;
+            color: $text-primary;
+        }
+    }
+
+    // ── Scroll indicator ───────────────────────────────────────────────────────
+    &__scroll-indicator {
+        position: absolute;
+        bottom: 104px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        opacity: 0;
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba($text-muted, 0.9), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        .scroll-text {
+            font-family: $font-body;
+            font-size: 0.56rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: $text-muted;
+        }
+    }
+
+    // ── Mobile ─────────────────────────────────────────────────────────────────
+    @media (max-width: $bp-tablet) {
+        padding: clamp(90px, 13vh, 120px) 5% clamp(120px, 14vh, 150px);
+
+        &__title {
+            // Slightly tighter scale so "ARYA SEN." fits one line on phones
+            font-size: clamp(1.9rem, 10vw, 3.8rem);
+            letter-spacing: -0.03em;
+        }
+
+        &__meta {
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        &__meta-sep {
+            width: 40px;
+            height: 1px;
+            margin-top: 0;
+        }
+
+        &__subtitle {
+            text-align: center;
+        }
+    }
+}
+
+// ── Keyframes ──────────────────────────────────────────────────────────────────
+@keyframes scrollPulse {
+    0%, 100% { opacity: 0.30; transform: scaleY(0.60); }
+    50%       { opacity: 1.00; transform: scaleY(1.00); }
+}
+
+@keyframes hero-grain {
+    0%   { transform: translate(0%,   0%);  }
+    17%  { transform: translate(-5%,  3%);  }
+    33%  { transform: translate(4%,  -4%);  }
+    50%  { transform: translate(-3%,  5%);  }
+    67%  { transform: translate(5%,  -2%);  }
+    83%  { transform: translate(-2%,  4%);  }
+    100% { transform: translate(3%,  -5%);  }
+}
+
+@keyframes hero-grain-coarse {
+    0%   { transform: translate(0%,    0%);  }
+    17%  { transform: translate(3%,   -5%);  }
+    33%  { transform: translate(-6%,   2%);  }
+    50%  { transform: translate(4%,    6%);  }
+    67%  { transform: translate(-2%,  -3%);  }
+    83%  { transform: translate(6%,    1%);  }
+    100% { transform: translate(-4%,   3%);  }
+}

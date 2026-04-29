@@ -1,0 +1,565 @@
+// ─── Portfolio / Work Section ───
+.work {
+    position: relative;
+    padding: $section-padding 0;
+    overflow: hidden;
+
+    &__header {
+        width: $container-width;
+        margin: 0 auto 48px;
+        padding-left: clamp(60px, 6vw, 100px);
+
+        @media (max-width: $bp-tablet) {
+            padding-left: 0;
+        }
+    }
+
+    &__title {
+        margin-bottom: 8px;
+    }
+
+    &__subtitle {
+        max-width: 500px;
+    }
+
+    // Category Filter Pills
+    &__filters {
+        width: $container-width;
+        margin: 0 auto 48px;
+        padding-left: clamp(60px, 6vw, 100px);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        @media (max-width: $bp-tablet) {
+            padding-left: 0;
+            gap: 8px;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    &__filter-btn {
+        font-family: $font-body;
+        font-size: 0.8rem;
+        font-weight: 400;
+        padding: 10px 22px;
+        border-radius: $radius-pill;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: $text-muted;
+        background: transparent;
+        transition: all $duration-fast $ease-out-expo;
+        white-space: nowrap;
+        cursor: pointer;
+
+        &:hover {
+            border-color: rgba($accent, 0.5);
+            color: $text-primary;
+        }
+
+        &.active {
+            background: $accent;
+            color: #fff;
+            border-color: $accent;
+        }
+    }
+
+    // Vertical Grid Gallery (Lusion-style)
+    &__gallery {
+        display: none;
+        width: $container-width;
+        margin: 0 auto;
+        padding: 0 clamp(20px, 4vw, 60px);
+
+        &.active {
+            display: block;
+        }
+    }
+
+    // 3-col portrait grid
+    &__scroll-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: clamp(16px, 2.5vw, 40px);
+        row-gap: clamp(40px, 6vw, 80px);
+        padding: 24px 0 32px;
+
+        @media (max-width: $bp-tablet) {
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 32px;
+        }
+
+        @media (max-width: $bp-mobile) {
+            grid-template-columns: 1fr;
+            row-gap: 28px;
+        }
+    }
+
+    // Gallery with horizontal (landscape) cards — 2-column layout
+    &__gallery--horizontal {
+        .work__scroll-container {
+            grid-template-columns: repeat(2, 1fr);
+
+            @media (max-width: $bp-tablet) {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    &__card.is-hidden {
+        display: none;
+    }
+
+    // Project Card — GSAP owns transform (entry + hover tilt). CSS only
+    // handles passive children (image scale, title slide).
+    &__card {
+        // Each card gets its own subtle baseline tilt set by JS (--tilt).
+        --tilt: 0deg;
+
+        position: relative;
+        aspect-ratio: 4 / 5;
+        border-radius: $radius-md;
+        overflow: hidden;
+        background: $bg-card;
+        cursor: pointer;
+        will-change: transform, opacity;
+        // GSAP sets initial hidden state via gsap.set in JS — but a paint can
+        // happen before JS runs, so hide via CSS too to prevent flash.
+        opacity: 0;
+
+        // Hover (image-side only — card lift is GSAP-driven)
+        &:hover {
+            .work__card-image img {
+                transform: scale(calc(var(--thumb-scale, 1) * 1.03));
+            }
+
+            .work__card-overlay { opacity: 1; }
+
+            .work__card-title {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .work__card-tag {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+
+    &__card--horizontal {
+        aspect-ratio: 16 / 9;
+    }
+
+    &__card-image {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+    }
+
+    // Parallax wrapper — GSAP scrubs its yPercent. Made taller than the card
+    // and offset upward so yPercent ±4 never exposes a gap.
+    &__card-image-wrap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -6%;
+        height: 112%;
+        will-change: transform;
+    }
+
+    &__card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(var(--thumb-scale, 1));
+        transform-origin: var(--thumb-origin, center center);
+        // Smooth, premium hover-zoom — calm, not bouncy
+        transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &__card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.45) 35%, transparent 65%);
+        opacity: 0;
+        transition: opacity 0.45s $ease-out-expo;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: clamp(18px, 2vw, 28px);
+        z-index: 3;
+    }
+
+    &__card-title {
+        font-family: $font-display;
+        font-size: clamp(0.95rem, 1.1vw, 1.2rem);
+        font-weight: 700;
+        line-height: 1.25;
+        transform: translateY(6px);
+        opacity: 0;
+        transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease-out;
+        margin-bottom: 6px;
+        color: $text-primary;
+    }
+
+    &__card-tag {
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: $accent;
+        font-weight: 500;
+        transform: translateY(4px);
+        opacity: 0;
+        transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease-out;
+    }
+
+    // "Show More" button
+    &__see-more-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: clamp(28px, 4vw, 56px);
+    }
+
+    &__see-more {
+        font-family: $font-body;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 14px 36px;
+        border-radius: $radius-pill;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: $text-primary;
+        background: transparent;
+        cursor: pointer;
+        transition:
+            border-color 0.3s $ease-out-expo,
+            background 0.3s $ease-out-expo,
+            transform 0.3s $ease-out-expo;
+
+        &:hover {
+            border-color: rgba($accent, 0.6);
+            background: rgba($accent, 0.08);
+            transform: translateY(-2px);
+        }
+
+        &.is-hidden { display: none; }
+
+        .work__see-more-count {
+            opacity: 0.55;
+            margin-left: 8px;
+            font-variant-numeric: tabular-nums;
+        }
+    }
+
+    // Hide the old horizontal-scroll hint — grid layout doesn't need it
+    &__scroll-hint {
+        display: none;
+    }
+}
+
+
+// ─── Work Lightbox / Modal ───
+#work-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+
+    &.is-open {
+        opacity: 1;
+        pointer-events: all;
+
+        .lb-panel {
+            transform: translateY(0) scale(1);
+        }
+    }
+}
+
+.lb-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.lb-panel {
+    position: relative;
+    z-index: 1;
+    width: min(96vw, 1100px);
+    max-height: 94vh;
+    background: $bg-surface;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(24px) scale(0.97);
+    transition: transform 0.4s $ease-out-expo;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    @media (min-width: 700px) {
+        flex-direction: row;
+        max-height: 88vh;
+    }
+}
+
+.lb-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: $text-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all $duration-fast $ease-out-expo;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: rotate(90deg);
+    }
+}
+
+.lb-image-area {
+    position: relative;
+    flex: 1 1 60%;
+    background: #080808;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+    overflow: hidden;
+
+    @media (min-width: 700px) {
+        min-height: 500px;
+    }
+}
+
+.lb-img-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+}
+
+.lb-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: $text-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all $duration-fast $ease-out-expo;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    &--prev { left: 12px; }
+    &--next { right: 12px; }
+}
+
+.lb-info {
+    flex: 0 0 300px;
+    padding: 40px 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+
+    @media (min-width: 700px) {
+        padding-top: 64px;
+        padding-right: 56px;
+    }
+}
+
+.lb-info-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.lb-tag {
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: $accent;
+    margin-bottom: 10px;
+}
+
+.lb-title {
+    font-family: $font-display;
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: $text-primary;
+}
+
+.lb-counter {
+    font-size: 0.7rem;
+    color: $text-muted;
+    font-family: $font-body;
+    white-space: nowrap;
+    padding-top: 4px;
+}
+
+.lb-desc {
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: $text-muted;
+    flex: 1;
+}
+
+.lb-thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.lb-thumb {
+    width: 52px;
+    height: 52px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    transition: all $duration-fast $ease-out-expo;
+    opacity: 0.55;
+
+    &:hover {
+        opacity: 0.85;
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    &.active {
+        opacity: 1;
+        border-color: $accent;
+    }
+}
+
+// Next Project button
+.lb-next-project {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 8px;
+    padding: 16px 20px;
+    border-radius: $radius-lg;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+    color: $text-primary;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color $duration-fast $ease-out-expo,
+                background $duration-fast $ease-out-expo;
+
+    &:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.04);
+
+        svg {
+            transform: translateX(4px);
+        }
+    }
+
+    svg {
+        flex-shrink: 0;
+        margin-left: auto;
+        opacity: 0.5;
+        transition: transform $duration-fast $ease-out-expo;
+    }
+
+    &__label {
+        display: block;
+        font-size: 0.62rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: $text-muted;
+        margin-bottom: 4px;
+    }
+
+    &__title {
+        display: block;
+        font-family: $font-display;
+        font-size: 0.85rem;
+        font-weight: 600;
+        line-height: 1.3;
+        color: $text-primary;
+    }
+}
+
+// Lightbox loading spinner
+.lb-spinner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.lb-spinner-ring {
+    width: 36px;
+    height: 36px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-top-color: $accent;
+    border-radius: 50%;
+    animation: lb-spin 0.7s linear infinite;
+}
+
+@keyframes lb-spin {
+    to { transform: rotate(360deg); }
+}
+
+// Card lazy-load placeholder (before src is set)
+img.lazy-img {
+    background: $bg-card;
+    min-height: 100%;
+}

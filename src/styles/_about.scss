@@ -1,0 +1,94 @@
+// ─── About / Story Section ───
+.about {
+    position: relative;
+    padding: $section-padding 0;
+    overflow: hidden;
+
+    &__container {
+        width: $container-width;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: clamp(40px, 8vw, 120px);
+        align-items: start;
+        padding-left: clamp(60px, 6vw, 100px);
+
+        @media (max-width: $bp-tablet) {
+            grid-template-columns: 1fr;
+            padding-left: 0;
+            gap: 40px;
+        }
+    }
+
+    &__text {
+        p {
+            font-family: $font-display;
+            font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+            font-weight: 600;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+            color: $text-primary;
+
+            .text-muted-inline {
+                color: $text-muted;
+                transition: color $duration-mid $ease-out-expo;
+            }
+
+            // Animate muted text on scroll
+            &.is-visible .text-muted-inline {
+                color: $text-primary;
+            }
+        }
+    }
+
+    &__counter {
+        position: sticky;
+        top: 40%;
+        text-align: right;
+
+        @media (max-width: $bp-tablet) {
+            position: relative;
+            top: 0;
+            text-align: left;
+        }
+
+        .counter-number {
+            font-family: $font-display;
+            font-size: clamp(5rem, 10vw, 10rem);
+            font-weight: 800;
+            line-height: 1;
+            color: $accent;
+            letter-spacing: -0.05em;
+        }
+
+        .counter-label {
+            font-family: $font-accent;
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            color: $text-muted;
+            margin-top: 8px;
+        }
+    }
+
+    &__agency {
+        margin-top: 48px;
+        padding-top: 32px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+        .agency-label {
+            margin-bottom: 8px;
+        }
+
+        .agency-name {
+            font-family: $font-display;
+            font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+            font-weight: 700;
+            color: $accent;
+        }
+
+        .agency-role {
+            font-size: 0.85rem;
+            color: $text-muted;
+            margin-top: 4px;
+        }
+    }
+}

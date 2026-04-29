@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing — Supriyo Sen</title>
+  <meta name="description" content="Thoughts on creative retouching, AI production, vibe coding, 3D, and the craft of making things." />
+  <meta property="og:title" content="Writing — Supriyo Sen" />
+  <meta property="og:description" content="Ideas, process, and the occasional rabbit hole." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@300;400;500;600&family=Jaro&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <style>
+    body { background: #060606; margin: 0; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════ CUSTOM CURSOR ════════════════ -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- ════════════════ NAVIGATION ════════════════ -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav__logo" aria-label="Arya Sen — Home">
+      <img src="/logo-arya-white.png" alt="Arya Sen logo" />
+    </a>
+    <div class="nav__links">
+      <a href="/#work" class="nav__link">Work</a>
+      <a href="/#services" class="nav__link">Services</a>
+      <a href="/blog.html" class="nav__link active">Blog</a>
+      <a href="/tools.html" class="nav__link">Tools</a>
+    </div>
+    <a href="/#contact" class="nav__cta">Let's Talk</a>
+  </nav>
+
+  <!-- ════════════════ MAIN CONTENT ════════════════ -->
+  <main>
+
+    <!-- ─── BLOG HERO ─── -->
+    <section class="blog-hero">
+      <div class="blog-hero__container">
+        <a href="/" class="blog-back reveal">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back
+        </a>
+        <div class="blog-hero__label label reveal">Writing</div>
+        <h1 class="blog-hero__title reveal">THOUGHTS.</h1>
+        <p class="blog-hero__sub reveal">Ideas, process, and the occasional rabbit hole — straight from the studio.</p>
+      </div>
+    </section>
+
+    <!-- ─── FILTERS ─── -->
+    <div class="blog-filters reveal-stagger">
+      <button class="blog-filters__btn active" data-cat="all">All</button>
+      <button class="blog-filters__btn" data-cat="retouching">Retouching</button>
+      <button class="blog-filters__btn" data-cat="ai">AI Production</button>
+      <button class="blog-filters__btn" data-cat="coding">Vibe Coding</button>
+      <button class="blog-filters__btn" data-cat="3d">3D & Motion</button>
+      <button class="blog-filters__btn" data-cat="craft">Craft</button>
+    </div>
+
+    <!-- ─── BLOG GRID ─── -->
+    <div class="blog-grid">
+
+      <a href="#" class="blog-card" data-cat="ai">
+        <div class="blog-card__top">
+          <span class="blog-card__number">01</span>
+          <span class="blog-card__tag">AI Production</span>
+        </div>
+        <h2 class="blog-card__title">How I Shot a Commercial Without a Camera</h2>
+        <p class="blog-card__excerpt">Last year I produced a full 60-second commercial for a brand using only AI tools. No crew, no location, no budget. Here's the exact workflow — from brief to final render.</p>
+        <div class="blog-card__footer">
+          <span class="blog-card__meta">Apr 2026 · 8 min read</span>
+          <span class="blog-card__arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="/blog-invisible-retouching.html" class="blog-card" data-cat="retouching">
+        <div class="blog-card__top">
+          <span class="blog-card__number">02</span>
+          <span class="blog-card__tag">Retouching</span>
+        </div>
+        <h2 class="blog-card__title">The Art of Invisible Retouching</h2>
+        <p class="blog-card__excerpt">After 16 years of moving pixels, I've learned that the best retouching leaves no trace. The process behind work that looks natural — and why that's the hardest thing to pull off.</p>
+        <div class="blog-card__footer">
+          <span class="blog-card__meta">Mar 2026 · 5 min read</span>
+          <span class="blog-card__arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="/blog-vibe-coding.html" class="blog-card" data-cat="coding">
+        <div class="blog-card__top">
+          <span class="blog-card__number">03</span>
+          <span class="blog-card__tag">Vibe Coding</span>
+        </div>
+        <h2 class="blog-card__title">Vibe Coding: The New Creative Superpower</h2>
+        <p class="blog-card__excerpt">Writing code with AI isn't cheating — it's the most creative act I've experienced in a decade. This is what the workflow actually looks like when you let go of the syntax and focus on the idea.</p>
+        <div class="blog-card__footer">
+          <span class="blog-card__meta">Mar 2026 · 6 min read</span>
+          <span class="blog-card__arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card" data-cat="craft">
+        <div class="blog-card__top">
+          <span class="blog-card__number">04</span>
+          <span class="blog-card__tag">Craft</span>
+        </div>
+        <h2 class="blog-card__title">16 Years of Pixels: What Mastery Actually Looks Like</h2>
+        <p class="blog-card__excerpt">Mastery isn't what you think it is. It's not perfection — it's pattern recognition, speed, and knowing exactly when to stop. What sixteen years of daily retouching taught me about creative discipline.</p>
+        <div class="blog-card__footer">
+          <span class="blog-card__meta">Feb 2026 · 10 min read</span>
+          <span class="blog-card__arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card" data-cat="3d">
+        <div class="blog-card__top">
+          <span class="blog-card__number">05</span>
+          <span class="blog-card__tag">3D & Motion</span>
+        </div>
+        <h2 class="blog-card__title">3D Without 3D School</h2>
+        <p class="blog-card__excerpt">I taught myself Blender in three months. The techniques I use every day aren't the ones in any YouTube tutorial — they come from treating 3D the same way I treat retouching: obsessively.</p>
+        <div class="blog-card__footer">
+          <span class="blog-card__meta">Jan 2026 · 4 min read</span>
+          <span class="blog-card__arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="#" class="blog-card" data-cat="ai">
+        <div class="blog-card__top">
+          <span class="blog-card__number">06</span>
+          <span class="blog-card__tag">AI Production</span>
+        </div>
+        <h2 class="blog-card__title">Generative AI Is the Darkroom of Our Generation</h2>
+        <p class="blog-card__excerpt">Every generation of creatives gets a new tool that feels like cheating until it doesn't. Photography felt that way to painters. Photoshop felt that way to photographers. AI is no different.</p>
+        <div class="blog-card__footer">
+          <span class="blog-card__meta">Dec 2025 · 7 min read</span>
+          <span class="blog-card__arrow">↗</span>
+        </div>
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <!-- Link columns -->
+      <div class="footer__grid">
+        <div class="footer__col">
+          <span class="footer__col-label">Navigate</span>
+          <a href="/#work" class="footer__link">Work</a>
+          <a href="/#services" class="footer__link">Services</a>
+          <a href="/#clients" class="footer__link">Clients</a>
+          <a href="/blog.html" class="footer__link active">Blog</a>
+          <a href="/tools.html" class="footer__link">Tools</a>
+          <a href="/#contact" class="footer__link">Contact</a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-label">Connect</span>
+          <a href="https://www.instagram.com/_arya.sen/" target="_blank" rel="noopener" class="footer__link">Instagram <span>↗</span></a>
+          <a href="https://www.behance.net/supriyosen1" target="_blank" rel="noopener" class="footer__link">Behance <span>↗</span></a>
+          <a href="mailto:aryaknj@gmail.com" class="footer__link">Email <span>↗</span></a>
+          <a href="https://wa.me/919851202658" target="_blank" rel="noopener" class="footer__link">WhatsApp <span>↗</span></a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-label">Studio</span>
+          <p class="footer__studio-desc">Co-founder &amp; Creative Director</p>
+          <p class="footer__studio-name">Bufferrring</p>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Supriyo Sen. Crafted with <span class="footer-accent">code &amp; caffeine</span>.</p>
+        <a href="#" class="footer__back-top">Back to top ↑</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script type="module" src="/src/blog.js"></script>
+</body>
+
+</html>

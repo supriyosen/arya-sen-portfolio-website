@@ -1,0 +1,47 @@
+// ─── Color Tokens ───
+$bg-primary:    #060606;
+$bg-surface:    #111111;
+$bg-card:       #1a1a1a;
+
+$text-primary:  #F0EDE6;
+$text-muted:    #777777;
+$text-dark:     #060606;
+
+// Brand palette
+$brand-orange:  #2107B4;
+$brand-red:     #1805A0;
+$brand-orange2: #3315D4;
+$brand-sand:    #D9C3AB;
+$brand-black:   #000000;
+
+$accent:        #2107B4;
+$accent-glow:   #2107B4;
+$accent-warm:   #3315D4;
+
+// ─── Typography ───
+$font-display:  'Syne', sans-serif;
+$font-body:     'Inter', sans-serif;
+$font-accent:   'Caveat', cursive;
+
+// ─── Spacing ───
+$section-padding: clamp(80px, 10vw, 160px);
+$container-width: min(90%, 1400px);
+
+// ─── Transitions ───
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+$duration-fast: 0.3s;
+$duration-mid:  0.6s;
+$duration-slow: 1.2s;
+
+// ─── Border Radius ───
+$radius-sm: 8px;
+$radius-md: 16px;
+$radius-lg: 24px;
+$radius-pill: 100px;
+
+// ─── Breakpoints ───
+$bp-mobile:  480px;
+$bp-tablet:  768px;
+$bp-desktop: 1024px;
+$bp-wide:    1440px;
