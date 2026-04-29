@@ -1,5 +1,6 @@
 // ─── Blog Preview Section (homepage) ───
 .blog-preview {
+    position: relative;
     background: $bg-primary;
     padding: $section-padding 0;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
