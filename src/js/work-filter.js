@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // CDN base for Behance
 const B = 'https://mir-s3-cdn-cf.behance.net/project_modules/';
 
-const PROJECTS = {
+export const PROJECTS = {
     retouching: [
         {
             title: 'Ambani Wedding — Isha Ambani',
@@ -413,7 +413,7 @@ const PROJECTS = {
             desc: 'A complete AI-generated brand campaign for SOLVEA, a botanical skincare brand. From product renders to lifestyle compositions — every frame generated, crafted, and art-directed end-to-end using AI.',
             horizontal: true,
             thumbFocus: 'center center',
-            cover: '/images/portfolio/ai-design/solvea/01.webp',
+            cover: '/images/portfolio/ai-design/solvea/07.webp',
             images: [
                 '/images/portfolio/ai-design/solvea/01.webp',
                 '/images/portfolio/ai-design/solvea/02.webp',
@@ -453,6 +453,316 @@ const PROJECTS = {
                 '/images/portfolio/ai-design/redmi-pad/14.webp',
             ]
         },
+        {
+            title: 'AERIS — Watch & Buds Campaign',
+            tag: 'AI Brand Design',
+            desc: 'AI-generated product campaign for AERIS, a concept wearables brand. Dark-mode hero shots, lifestyle compositions, and typographic key visuals — all crafted without a studio or camera.',
+            horizontal: true,
+            thumbFocus: 'center center',
+            cover: '/images/portfolio/ai-design/aeris-wearables/08.webp',
+            images: [
+                '/images/portfolio/ai-design/aeris-wearables/01.webp',
+                '/images/portfolio/ai-design/aeris-wearables/02.webp',
+                '/images/portfolio/ai-design/aeris-wearables/03.webp',
+                '/images/portfolio/ai-design/aeris-wearables/04.webp',
+                '/images/portfolio/ai-design/aeris-wearables/05.webp',
+                '/images/portfolio/ai-design/aeris-wearables/06.webp',
+                '/images/portfolio/ai-design/aeris-wearables/07.webp',
+                '/images/portfolio/ai-design/aeris-wearables/08.webp',
+                '/images/portfolio/ai-design/aeris-wearables/09.webp',
+                '/images/portfolio/ai-design/aeris-wearables/10.webp',
+                '/images/portfolio/ai-design/aeris-wearables/11.webp',
+                '/images/portfolio/ai-design/aeris-wearables/12.webp',
+                '/images/portfolio/ai-design/aeris-wearables/13.webp',
+            ]
+        },
+        {
+            title: 'LOEWE × LEGO — Built to Carry',
+            tag: 'AI Brand Collab',
+            desc: 'A concept collaboration campaign merging LOEWE\'s craft-driven luxury with LEGO\'s modular play. "Built to Carry" — a full campaign overview with brand strategy, visuals, and key messaging, generated entirely with AI.',
+            horizontal: true,
+            thumbFocus: 'center center',
+            cover: '/images/portfolio/ai-design/loewe-lego/02.webp',
+            images: [
+                '/images/portfolio/ai-design/loewe-lego/01.webp',
+                '/images/portfolio/ai-design/loewe-lego/02.webp',
+                '/images/portfolio/ai-design/loewe-lego/03.webp',
+                '/images/portfolio/ai-design/loewe-lego/04.webp',
+                '/images/portfolio/ai-design/loewe-lego/05.webp',
+                '/images/portfolio/ai-design/loewe-lego/06.webp',
+                '/images/portfolio/ai-design/loewe-lego/07.webp',
+                '/images/portfolio/ai-design/loewe-lego/08.webp',
+                '/images/portfolio/ai-design/loewe-lego/09.webp',
+                '/images/portfolio/ai-design/loewe-lego/10.webp',
+                '/images/portfolio/ai-design/loewe-lego/11.webp',
+                '/images/portfolio/ai-design/loewe-lego/12.webp',
+                '/images/portfolio/ai-design/loewe-lego/13.webp',
+                '/images/portfolio/ai-design/loewe-lego/14.webp',
+                '/images/portfolio/ai-design/loewe-lego/15.webp',
+                '/images/portfolio/ai-design/loewe-lego/16.webp',
+                '/images/portfolio/ai-design/loewe-lego/17.webp',
+                '/images/portfolio/ai-design/loewe-lego/18.webp',
+            ]
+        },
+        {
+            title: 'Renaissance Reboot — AI Anachronism',
+            tag: 'AI Concept Art',
+            desc: 'Old Masters meet the machine age. A series of AI-generated scenes that transplant Renaissance painting aesthetics into the modern digital era — classical figures, contemporary technology.',
+            horizontal: true,
+            thumbFocus: 'center center',
+            cover: '/images/portfolio/ai-design/renaissance-ai/10.webp',
+            images: [
+                '/images/portfolio/ai-design/renaissance-ai/01.webp',
+                '/images/portfolio/ai-design/renaissance-ai/02.webp',
+                '/images/portfolio/ai-design/renaissance-ai/03.webp',
+                '/images/portfolio/ai-design/renaissance-ai/04.webp',
+                '/images/portfolio/ai-design/renaissance-ai/05.webp',
+                '/images/portfolio/ai-design/renaissance-ai/06.webp',
+                '/images/portfolio/ai-design/renaissance-ai/07.webp',
+                '/images/portfolio/ai-design/renaissance-ai/08.webp',
+                '/images/portfolio/ai-design/renaissance-ai/09.webp',
+                '/images/portfolio/ai-design/renaissance-ai/10.webp',
+                '/images/portfolio/ai-design/renaissance-ai/11.webp',
+                '/images/portfolio/ai-design/renaissance-ai/12.webp',
+                '/images/portfolio/ai-design/renaissance-ai/13.webp',
+                '/images/portfolio/ai-design/renaissance-ai/14.webp',
+                '/images/portfolio/ai-design/renaissance-ai/15.webp',
+            ]
+        },
+        {
+            title: 'Bureau of Burdens — Certified Complicated',
+            tag: 'AI Character Design',
+            desc: 'A satirical animated universe about bureaucracy gone mad. Full character design, world-building, campaign posters, and brand visuals for the "Bureau of Burdens" — entirely AI-generated.',
+            horizontal: true,
+            thumbFocus: 'center center',
+            cover: '/images/portfolio/ai-design/bureau-of-burdens/16.webp',
+            images: [
+                '/images/portfolio/ai-design/bureau-of-burdens/01.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/02.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/03.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/04.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/05.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/06.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/07.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/08.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/09.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/10.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/11.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/12.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/13.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/14.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/15.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/16.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/17.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/18.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/19.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/20.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/21.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/22.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/23.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/24.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/25.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/26.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/27.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/28.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/29.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/30.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/31.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/32.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/33.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/34.webp',
+                '/images/portfolio/ai-design/bureau-of-burdens/35.webp',
+            ]
+        },
+        {
+            title: 'Melon Kings — Character Universe',
+            tag: 'AI Character Design',
+            desc: 'Complete character bible and brand universe for Melon Kings — a skateboarding duo with fruit-head personas. Character sheets, relationship diagrams, expressions, and world art, all AI-generated.',
+            horizontal: true,
+            thumbFocus: 'center center',
+            cover: '/images/portfolio/ai-design/melon-kings/03.webp',
+            images: [
+                '/images/portfolio/ai-design/melon-kings/01.webp',
+                '/images/portfolio/ai-design/melon-kings/02.webp',
+                '/images/portfolio/ai-design/melon-kings/03.webp',
+                '/images/portfolio/ai-design/melon-kings/04.webp',
+                '/images/portfolio/ai-design/melon-kings/05.webp',
+                '/images/portfolio/ai-design/melon-kings/06.webp',
+                '/images/portfolio/ai-design/melon-kings/07.webp',
+                '/images/portfolio/ai-design/melon-kings/08.webp',
+                '/images/portfolio/ai-design/melon-kings/09.webp',
+                '/images/portfolio/ai-design/melon-kings/10.webp',
+                '/images/portfolio/ai-design/melon-kings/11.webp',
+                '/images/portfolio/ai-design/melon-kings/12.webp',
+                '/images/portfolio/ai-design/melon-kings/13.webp',
+                '/images/portfolio/ai-design/melon-kings/14.webp',
+                '/images/portfolio/ai-design/melon-kings/15.webp',
+                '/images/portfolio/ai-design/melon-kings/16.webp',
+                '/images/portfolio/ai-design/melon-kings/17.webp',
+                '/images/portfolio/ai-design/melon-kings/18.webp',
+                '/images/portfolio/ai-design/melon-kings/19.webp',
+                '/images/portfolio/ai-design/melon-kings/20.webp',
+                '/images/portfolio/ai-design/melon-kings/21.webp',
+                '/images/portfolio/ai-design/melon-kings/22.webp',
+                '/images/portfolio/ai-design/melon-kings/23.webp',
+                '/images/portfolio/ai-design/melon-kings/24.webp',
+                '/images/portfolio/ai-design/melon-kings/25.webp',
+                '/images/portfolio/ai-design/melon-kings/26.webp',
+                '/images/portfolio/ai-design/melon-kings/27.webp',
+                '/images/portfolio/ai-design/melon-kings/28.webp',
+                '/images/portfolio/ai-design/melon-kings/29.webp',
+                '/images/portfolio/ai-design/melon-kings/30.webp',
+            ]
+        },
+        {
+            title: 'TRESemmé Hydra Matrix — AI Ad Campaign',
+            tag: 'AI Commercial',
+            desc: 'Product commercial concept for TRESemmé Hydra Matrix. Before/after hero shots, water-splash product renders, and lifestyle visuals — all generated with AI, no studio required.',
+            horizontal: true,
+            thumbFocus: 'center center',
+            cover: '/images/portfolio/ai-design/tresemme/08.webp',
+            images: [
+                '/images/portfolio/ai-design/tresemme/01.webp',
+                '/images/portfolio/ai-design/tresemme/02.webp',
+                '/images/portfolio/ai-design/tresemme/03.webp',
+                '/images/portfolio/ai-design/tresemme/04.webp',
+                '/images/portfolio/ai-design/tresemme/05.webp',
+                '/images/portfolio/ai-design/tresemme/06.webp',
+                '/images/portfolio/ai-design/tresemme/07.webp',
+                '/images/portfolio/ai-design/tresemme/08.webp',
+                '/images/portfolio/ai-design/tresemme/09.webp',
+                '/images/portfolio/ai-design/tresemme/10.webp',
+                '/images/portfolio/ai-design/tresemme/11.webp',
+                '/images/portfolio/ai-design/tresemme/12.webp',
+                '/images/portfolio/ai-design/tresemme/13.webp',
+                '/images/portfolio/ai-design/tresemme/14.webp',
+                '/images/portfolio/ai-design/tresemme/15.webp',
+                '/images/portfolio/ai-design/tresemme/16.webp',
+            ]
+        },
+        {
+            title: 'Crystal Bloom — Animated Fantasy',
+            tag: 'AI Storyboard',
+            desc: 'A visual storyboard for Crystal Bloom, an animated fantasy short. Scene-by-scene concept art, character portraits, and environmental designs — all AI-generated in a luxury fantasy aesthetic.',
+            horizontal: true,
+            thumbFocus: 'center center',
+            cover: '/images/portfolio/ai-design/crystal-bloom/11.webp',
+            images: [
+                '/images/portfolio/ai-design/crystal-bloom/01.webp',
+                '/images/portfolio/ai-design/crystal-bloom/02.webp',
+                '/images/portfolio/ai-design/crystal-bloom/03.webp',
+                '/images/portfolio/ai-design/crystal-bloom/04.webp',
+                '/images/portfolio/ai-design/crystal-bloom/05.webp',
+                '/images/portfolio/ai-design/crystal-bloom/06.webp',
+                '/images/portfolio/ai-design/crystal-bloom/07.webp',
+                '/images/portfolio/ai-design/crystal-bloom/08.webp',
+                '/images/portfolio/ai-design/crystal-bloom/09.webp',
+                '/images/portfolio/ai-design/crystal-bloom/10.webp',
+                '/images/portfolio/ai-design/crystal-bloom/11.webp',
+                '/images/portfolio/ai-design/crystal-bloom/12.webp',
+                '/images/portfolio/ai-design/crystal-bloom/13.webp',
+                '/images/portfolio/ai-design/crystal-bloom/14.webp',
+                '/images/portfolio/ai-design/crystal-bloom/15.webp',
+                '/images/portfolio/ai-design/crystal-bloom/16.webp',
+                '/images/portfolio/ai-design/crystal-bloom/17.webp',
+                '/images/portfolio/ai-design/crystal-bloom/18.webp',
+                '/images/portfolio/ai-design/crystal-bloom/19.webp',
+                '/images/portfolio/ai-design/crystal-bloom/20.webp',
+            ]
+        },
+        {
+            title: 'Corona Extra — AI Product Commercial',
+            tag: 'AI Commercial',
+            desc: 'Cinematic AI-generated product shots for Corona Extra. Golden-hour beach settings, condensation detail, and atmospheric lighting — a full visual campaign produced without a single photograph.',
+            horizontal: true,
+            thumbFocus: 'center center',
+            cover: '/images/portfolio/ai-design/corona/01.webp',
+            images: [
+                '/images/portfolio/ai-design/corona/01.webp',
+                '/images/portfolio/ai-design/corona/02.webp',
+                '/images/portfolio/ai-design/corona/03.webp',
+                '/images/portfolio/ai-design/corona/04.webp',
+                '/images/portfolio/ai-design/corona/05.webp',
+                '/images/portfolio/ai-design/corona/06.webp',
+                '/images/portfolio/ai-design/corona/07.webp',
+            ]
+        },
+        {
+            title: 'Maggi — Same Maggi. New Energy.',
+            tag: 'AI Brand Strategy',
+            desc: 'A full rebrand concept for Maggi. New visual identity, brand pillars, campaign taglines, and packaging direction — "Make It Yours." — strategy and visuals developed and visualised entirely with AI.',
+            horizontal: true,
+            thumbFocus: 'center center',
+            cover: '/images/portfolio/ai-design/maggi-rebrand/01.webp',
+            images: [
+                '/images/portfolio/ai-design/maggi-rebrand/01.webp',
+                '/images/portfolio/ai-design/maggi-rebrand/02.webp',
+                '/images/portfolio/ai-design/maggi-rebrand/03.webp',
+                '/images/portfolio/ai-design/maggi-rebrand/04.webp',
+                '/images/portfolio/ai-design/maggi-rebrand/05.webp',
+                '/images/portfolio/ai-design/maggi-rebrand/06.webp',
+                '/images/portfolio/ai-design/maggi-rebrand/07.webp',
+                '/images/portfolio/ai-design/maggi-rebrand/08.webp',
+                '/images/portfolio/ai-design/maggi-rebrand/09.webp',
+                '/images/portfolio/ai-design/maggi-rebrand/10.webp',
+                '/images/portfolio/ai-design/maggi-rebrand/11.webp',
+                '/images/portfolio/ai-design/maggi-rebrand/12.webp',
+                '/images/portfolio/ai-design/maggi-rebrand/13.webp',
+            ]
+        },
+        {
+            title: 'VIOLETTE — Everyday Object. Extraordinary Attitude.',
+            tag: 'AI Fashion Campaign',
+            desc: 'A concept fashion campaign for VIOLETTE that elevates the mundane — plastic bags, disposable objects — into luxury editorial moments. Shot entirely in AI with a soft pink, aspirational aesthetic.',
+            horizontal: true,
+            thumbFocus: 'center center',
+            cover: '/images/portfolio/ai-design/violette/01.webp',
+            images: [
+                '/images/portfolio/ai-design/violette/01.webp',
+                '/images/portfolio/ai-design/violette/02.webp',
+                '/images/portfolio/ai-design/violette/03.webp',
+                '/images/portfolio/ai-design/violette/04.webp',
+                '/images/portfolio/ai-design/violette/05.webp',
+                '/images/portfolio/ai-design/violette/06.webp',
+                '/images/portfolio/ai-design/violette/07.webp',
+                '/images/portfolio/ai-design/violette/08.webp',
+                '/images/portfolio/ai-design/violette/09.webp',
+                '/images/portfolio/ai-design/violette/10.webp',
+            ]
+        },
+        {
+            title: 'VERSACE × Barilla — Pasta Baroque',
+            tag: 'AI Brand Collab',
+            desc: '"Al Dente. All Drama." A concept collab campaign where Versace\'s baroque opulence meets Barilla\'s Italian heritage. Luxury packaging, campaign strategy, and editorial visuals — all AI-generated.',
+            horizontal: true,
+            thumbFocus: 'center center',
+            cover: '/images/portfolio/ai-design/versace-barilla/01.webp',
+            images: [
+                '/images/portfolio/ai-design/versace-barilla/01.webp',
+                '/images/portfolio/ai-design/versace-barilla/02.webp',
+                '/images/portfolio/ai-design/versace-barilla/03.webp',
+                '/images/portfolio/ai-design/versace-barilla/04.webp',
+                '/images/portfolio/ai-design/versace-barilla/05.webp',
+                '/images/portfolio/ai-design/versace-barilla/06.webp',
+                '/images/portfolio/ai-design/versace-barilla/07.webp',
+                '/images/portfolio/ai-design/versace-barilla/08.webp',
+                '/images/portfolio/ai-design/versace-barilla/09.webp',
+                '/images/portfolio/ai-design/versace-barilla/10.webp',
+                '/images/portfolio/ai-design/versace-barilla/11.webp',
+                '/images/portfolio/ai-design/versace-barilla/12.webp',
+                '/images/portfolio/ai-design/versace-barilla/13.webp',
+                '/images/portfolio/ai-design/versace-barilla/14.webp',
+                '/images/portfolio/ai-design/versace-barilla/15.webp',
+                '/images/portfolio/ai-design/versace-barilla/16.webp',
+                '/images/portfolio/ai-design/versace-barilla/17.webp',
+                '/images/portfolio/ai-design/versace-barilla/18.webp',
+                '/images/portfolio/ai-design/versace-barilla/19.webp',
+                '/images/portfolio/ai-design/versace-barilla/20.webp',
+                '/images/portfolio/ai-design/versace-barilla/21.webp',
+                '/images/portfolio/ai-design/versace-barilla/22.webp',
+                '/images/portfolio/ai-design/versace-barilla/23.webp',
+            ]
+        },
     ],
     'vibe-coding': [
         { title: 'Interactive 3D Portfolio Gallery', tag: 'Web App · Three.js' },
@@ -483,7 +793,7 @@ const PROJECTS = {
 // ─── CDN URL helpers ───
 // Behance CDN supports multiple size tiers. Use max_1200 for thumbnails (cards)
 // and keep originals for lightbox full-res.
-function toThumb(url) {
+export function toThumb(url) {
     if (!url || url.startsWith('/')) return url; // local file — keep as-is
     return url
         .replace('/max_3840_webp/', '/max_1200/')
@@ -505,7 +815,25 @@ let lightboxIndex = 0;
 let lightboxCategory = null;
 let lightboxProjectIndex = 0;
 
-function openLightbox(project, startIndex = 0, category = null, projectIndex = 0) {
+let _scrollY = 0;
+
+function lockBodyScroll() {
+    _scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${_scrollY}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+}
+
+function unlockBodyScroll() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    window.scrollTo(0, _scrollY);
+}
+
+export function openLightbox(project, startIndex = 0, category = null, projectIndex = 0) {
     lightboxProject = project;
     lightboxIndex = startIndex;
     lightboxCategory = category;
@@ -513,7 +841,7 @@ function openLightbox(project, startIndex = 0, category = null, projectIndex = 0
     const lb = document.getElementById('work-lightbox');
     if (!lb) return;
     lb.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
+    lockBodyScroll();
     renderLightbox();
 }
 
@@ -521,7 +849,7 @@ function closeLightbox() {
     const lb = document.getElementById('work-lightbox');
     if (!lb) return;
     lb.classList.remove('is-open');
-    document.body.style.overflow = '';
+    unlockBodyScroll();
     lightboxProject = null;
 }
 
@@ -535,6 +863,16 @@ function renderLightbox() {
     document.getElementById('lb-tag').textContent = tag;
     document.getElementById('lb-desc').textContent = desc || '';
     document.getElementById('lb-counter').textContent = `${lightboxIndex + 1} / ${total}`;
+
+    const visitBtn = document.getElementById('lb-visit-site');
+    if (visitBtn) {
+        if (lightboxProject.externalLink) {
+            visitBtn.href = lightboxProject.externalLink;
+            visitBtn.style.display = 'inline-flex';
+        } else {
+            visitBtn.style.display = 'none';
+        }
+    }
 
     const imgEl = document.getElementById('lb-main-img');
     const spinner = document.getElementById('lb-spinner');
@@ -602,7 +940,7 @@ function lightboxNav(dir) {
     renderLightbox();
 }
 
-function injectLightbox() {
+export function injectLightbox() {
     if (document.getElementById('work-lightbox')) return;
     const lb = document.createElement('div');
     lb.id = 'work-lightbox';
@@ -647,6 +985,7 @@ function injectLightbox() {
             <div class="lb-counter" id="lb-counter"></div>
           </div>
           <div class="lb-desc" id="lb-desc"></div>
+          <a class="lb-visit-site" id="lb-visit-site" target="_blank" rel="noopener noreferrer" style="display:none">Visit Site <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           <div class="lb-thumbs" id="lb-thumbs"></div>
           <button class="lb-next-project" id="lb-next-project" aria-label="Next project">
             <span class="lb-next-project__label">Next Project</span>
@@ -767,12 +1106,13 @@ function setupCardScrollFX(card, tiltIndex) {
         }
     });
 
-    // Image parallax — yPercent -8 → 8 across the card's full transit.
+    // Image parallax — portrait cards ±4, horizontal cards ±2 (smaller wrapper).
+    const yRange = card.classList.contains('work__card--horizontal') ? 2 : 4;
     if (wrap) {
         gsap.fromTo(wrap,
-            { yPercent: -4 },
+            { yPercent: -yRange },
             {
-                yPercent: 4,
+                yPercent: yRange,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: card,

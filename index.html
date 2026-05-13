@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="overflow:hidden;">
+<html lang="en" class="is-preloading">
 
 <head>
   <meta charset="UTF-8" />
@@ -23,14 +23,18 @@
   <!-- Runs before anything else: kill scroll restoration and lock position -->
   <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     window.scrollTo(0, 0);
   </script>
 
   <!-- Critical inline CSS to prevent FOUC — must cover page AND preloader before external CSS loads -->
   <style>
     html, body {
-      background: #060606;
+      background: #050509;
       margin: 0;
+    }
+    /* Lock scroll only while preloader is up. JS removes this class when done. */
+    html.is-preloading, html.is-preloading body {
       overflow: hidden;
     }
 
@@ -39,16 +43,19 @@
       position: fixed;
       inset: 0;
       z-index: 10000;
-      background: #060606;
+      background: #050509;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
 
-    /* Hide chrome until JS reveals it after preloader */
+    /* Hide chrome until JS reveals it after preloader.
+       featured-work must be pre-hidden here so it doesn't flash
+       through the fading preloader before GSAP takes ownership. */
     .nav,
-    .footer {
+    .footer,
+    .featured-work {
       opacity: 0;
     }
   </style>
@@ -75,9 +82,8 @@
     </a>
     <div class="nav__links">
       <a href="#work" class="nav__link" data-nav="work">Work</a>
-      <a href="#services" class="nav__link" data-nav="services">Services</a>
-      <a href="#clients" class="nav__link" data-nav="clients">Clients</a>
-      <a href="/blog.html" class="nav__link">Blog</a>
+      <a href="#services" class="nav__link nav__link--secondary" data-nav="services">Services</a>
+      <a href="#clients" class="nav__link nav__link--secondary" data-nav="clients">Clients</a>
       <a href="/tools.html" class="nav__link">Tools</a>
     </div>
     <a href="#contact" class="nav__cta">Let's Talk</a>
@@ -89,19 +95,9 @@
     <!-- ─── HERO ─── -->
     <section class="hero" id="hero">
 
-      <!-- Fullscreen banner video background -->
-      <div class="hero__bg" aria-hidden="true">
-        <video class="hero__video" id="heroBgVideo"
-               muted loop playsinline preload="auto"
-               poster="/banner-poster.jpg">
-          <source src="/banner-video.mp4" type="video/mp4" />
-        </video>
-        <div class="hero__bg-grain"></div>
-      </div>
-
       <div class="hero__content">
         <!-- Eyebrow pill -->
-        <div class="hero__label label">Retouching & Compositing · AI Campaigns · Vibe Coding</div>
+        <div class="hero__label label">RETOUCHING · COMPOSITING · AI CAMPAIGNS · WEB APPS · CREATIVE TOOLS</div>
 
         <!-- Main headline -->
         <h1 class="hero__title">ARYA SEN<span class="title-period">.</span></h1>
@@ -109,55 +105,46 @@
         <!-- Divider rule -->
         <div class="hero__rule" aria-hidden="true"></div>
 
-        <!-- Bottom meta row: stat + description -->
+        <!-- Primary positioning line -->
+        <p class="hero__positioning">I build campaign visuals, web experiences, and AI-powered creative tools.</p>
+
+        <!-- Supporting detail line -->
+        <p class="hero__supporting">16+ years in retouching and compositing for brands and agencies — now expanded into generative AI, web apps, SaaS-style tools, AI video, and code-driven creative workflows.</p>
+
+        <!-- CTAs row -->
         <div class="hero__meta">
-          <div class="hero__stat">
-            <span class="hero__stat-num">16<sup>+</sup></span>
-            <span class="hero__stat-label">Years of<br />Visual Craft</span>
+          <div class="hero__ctas">
+            <a href="#work" class="hero__cta hero__cta--primary">View Work</a>
+            <a href="#contact" class="hero__cta hero__cta--ghost">Let's Talk</a>
           </div>
-          <div class="hero__meta-sep" aria-hidden="true"></div>
-          <p class="hero__subtitle">
-            <strong>Retouching &amp; compositing.</strong> AI <strong>brand campaigns</strong>, <strong>brand books</strong>,<br />
-            <strong>social content</strong>, <strong>web apps, SaaS &amp; tools</strong> — built for <strong>brands and creators</strong>.
-          </p>
         </div>
       </div>
 
-      <!-- Scroll indicator -->
-      <div class="hero__scroll-indicator">
-        <div class="scroll-line"></div>
-        <span class="scroll-text">Scroll</span>
-      </div>
-
     </section>
+
+    <!-- ─── FEATURED WORK WALL ─── -->
+    <section class="featured-work" id="featured-work" aria-label="Featured Work">
+      <div class="featured-work__stage" id="fw-stage"></div>
+    </section>
+
 
     <!-- ─── ABOUT / THE STORY ─── -->
     <section class="about" id="about">
       <div class="section-label">The Story</div>
       <div class="about__container">
         <div class="about__text reveal">
-          <p>
-            I've spent over sixteen years
-            <span class="text-muted-inline">making images lie beautifully</span>
-            — retouching for the world's biggest brands, compositing impossible scenes
-            <span class="text-muted-inline">frame by frame.</span>
-            Then AI arrived, and everything changed.
-            <span class="text-muted-inline">I didn't resist it. I absorbed it.</span>
-            Today, I merge decades of pixel-level discipline with generative AI,
-            3D environments, and code.
-            <span class="text-muted-inline">I build things — commercials, apps, websites, visual systems —</span>
-            that shouldn't exist yet,
-            <span class="text-muted-inline">but do.</span>
-          </p>
-          <div class="about__agency">
-            <div class="agency-label label">Agency</div>
-            <div class="agency-name">Bufferrring</div>
-            <div class="agency-role">Co-founder & Creative Director</div>
-          </div>
+          <p>For over sixteen years, I've worked in high-end retouching and compositing for brands, agencies, and commercial campaigns — refining images through light, texture, skin, product detail, and visual believability.</p>
+          <p>Today, that craft extends into generative AI, AI video, web apps, SaaS-style tools, and code-driven workflows.</p>
+          <p>I build campaign visuals, digital experiences, and creative systems that sit between visual judgment, emerging technology, and production speed.</p>
         </div>
         <div class="about__counter reveal">
           <div class="counter-number" id="yearCounter">0</div>
           <div class="counter-label">years of craft</div>
+        </div>
+        <div class="about__agency">
+          <div class="agency-label label">Agency</div>
+          <div class="agency-name">Bufferrring</div>
+          <div class="agency-role">Co-founder & Creative Director</div>
         </div>
       </div>
     </section>
@@ -165,43 +152,21 @@
     <div class="separator"></div>
 
     <!-- ─── SELECTED WORK ─── -->
-    <section class="work" id="work">
+    <section class="selected-work" id="work">
+
+      <!-- Section Intro -->
       <div class="section-label">Selected Work</div>
-      <div class="work__header reveal">
-        <h2 class="work__title heading-lg">The Work Speaks.</h2>
-        <p class="work__subtitle body-lg">A curated selection across retouching, AI, 3D, code, and art.</p>
+      <div class="sw-intro">
+        <h2 class="sw-intro__title heading-lg">Selected Work.</h2>
+        <p class="sw-intro__sub">A curated practice across image craft, AI campaign visuals, websites, digital products, and usable creative tools.</p>
       </div>
 
-      <!-- Category Filters -->
-      <div class="work__filters reveal-stagger" id="workFilters">
-        <button class="work__filter-btn active" data-category="retouching">Retouching & Compositing</button>
-        <button class="work__filter-btn" data-category="ai-commercials">AI Commercials & Film</button>
-        <button class="work__filter-btn" data-category="ai-design">AI Design</button>
-        <button class="work__filter-btn" data-category="vibe-coding">AI Vibe Coding</button>
-        <button class="work__filter-btn" data-category="art">Artistic Pursuits</button>
-      </div>
+      <!-- Featured Case-Study Cards -->
+      <div class="sw-featured" id="sw-featured"></div>
 
-      <!-- Galleries (one per category) -->
-      <div class="work__gallery active" data-gallery="retouching" id="gallery-retouching">
-        <div class="work__scroll-container"></div>
-      </div>
-      <div class="work__gallery" data-gallery="ai-commercials" id="gallery-ai-commercials">
-        <div class="work__scroll-container"></div>
-      </div>
-      <div class="work__gallery work__gallery--horizontal" data-gallery="ai-design" id="gallery-ai-design">
-        <div class="work__scroll-container"></div>
-      </div>
-      <div class="work__gallery" data-gallery="vibe-coding" id="gallery-vibe-coding">
-        <div class="work__scroll-container"></div>
-      </div>
-      <div class="work__gallery" data-gallery="art" id="gallery-art">
-        <div class="work__scroll-container"></div>
-      </div>
+      <!-- Practice Areas -->
+      <div class="sw-practices" id="sw-practices"></div>
 
-      <div class="work__scroll-hint">
-        <div class="scroll-hint-line"></div>
-        <span>Drag to explore</span>
-      </div>
     </section>
 
     <div class="separator"></div>
@@ -291,50 +256,6 @@
       </div>
     </section>
 
-    <!-- ─── BLOG PREVIEW ─── -->
-    <section class="blog-preview" id="blog">
-      <div class="section-label">Writing</div>
-      <div class="blog-preview__container">
-        <div class="blog-preview__header reveal">
-          <div class="blog-preview__heading-row">
-            <h2 class="blog-preview__title heading-lg">From the Studio.</h2>
-            <a href="/blog.html" class="blog-preview__see-all">All posts ↗</a>
-          </div>
-        </div>
-        <div class="blog-preview__list reveal-stagger">
-          <a href="/blog.html" class="blog-preview__item">
-            <div class="blog-preview__item-left">
-              <span class="blog-preview__tag">AI Production</span>
-              <h3 class="blog-preview__item-title">How I Shot a Commercial Without a Camera</h3>
-            </div>
-            <div class="blog-preview__item-right">
-              <span class="blog-preview__meta">Apr 2026 · 8 min read</span>
-              <span class="blog-preview__arrow">↗</span>
-            </div>
-          </a>
-          <a href="/blog.html" class="blog-preview__item">
-            <div class="blog-preview__item-left">
-              <span class="blog-preview__tag">Retouching</span>
-              <h3 class="blog-preview__item-title">The Art of Invisible Retouching</h3>
-            </div>
-            <div class="blog-preview__item-right">
-              <span class="blog-preview__meta">Mar 2026 · 5 min read</span>
-              <span class="blog-preview__arrow">↗</span>
-            </div>
-          </a>
-          <a href="/blog-vibe-coding.html" class="blog-preview__item">
-            <div class="blog-preview__item-left">
-              <span class="blog-preview__tag">Vibe Coding</span>
-              <h3 class="blog-preview__item-title">Vibe Coding: The New Creative Superpower</h3>
-            </div>
-            <div class="blog-preview__item-right">
-              <span class="blog-preview__meta">Mar 2026 · 6 min read</span>
-              <span class="blog-preview__arrow">↗</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
 
   </main>
 
@@ -349,7 +270,6 @@
           <a href="#work" class="footer__link">Work</a>
           <a href="#services" class="footer__link">Services</a>
           <a href="#clients" class="footer__link">Clients</a>
-          <a href="/blog.html" class="footer__link">Blog</a>
           <a href="/tools.html" class="footer__link">Tools</a>
           <a href="#contact" class="footer__link">Contact</a>
         </div>

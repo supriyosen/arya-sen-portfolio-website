@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Websites &amp; Digital Products — Arya Sen | Brand Sites, Web Apps &amp; Digital Experiences</title>
+  <meta name="description"
+    content="Live websites, web apps, landing pages, and digital product experiences — designed with visual direction, interface clarity, and code-driven execution." />
+  <meta property="og:title" content="Websites &amp; Digital Products — Arya Sen" />
+  <meta property="og:description"
+    content="A curated index of digital work with live links, case studies, product context, screens, and build notes." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@300;400;500;600&family=Jaro&family=Syne:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <style>
+    html, body { background: #060606; margin: 0; }
+    /* Prevent FOUC — module imports CSS via JS; keep page hidden until injected */
+    body { opacity: 0; }
+    body.ready { opacity: 1; transition: opacity .18s ease-out; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════ NAVIGATION ════════════════ -->
+  <nav class="nav" id="nav" style="opacity:0">
+    <a href="/" class="nav__logo" aria-label="Arya Sen — Home">
+      <img src="/logo-arya-white.png" alt="Arya Sen logo" />
+    </a>
+    <div class="nav__links">
+      <a href="/#work" class="nav__link active">Work</a>
+      <a href="/#services" class="nav__link nav__link--secondary">Services</a>
+      <a href="/#clients" class="nav__link nav__link--secondary">Clients</a>
+      <a href="/blog.html" class="nav__link">Blog</a>
+      <a href="/tools.html" class="nav__link">Tools</a>
+    </div>
+    <a href="/#contact" class="nav__cta">Let's Talk</a>
+  </nav>
+
+  <!-- ════════════════ MAIN CONTENT ════════════════ -->
+  <main>
+
+    <!-- ─── HERO ─── -->
+    <section class="wdp-hero">
+      <div class="wdp-hero__inner">
+
+        <a href="/#work" class="wdp-hero__back">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          All Work
+        </a>
+
+        <p class="wdp-hero__taxonomy">
+          Websites&nbsp;&nbsp;/&nbsp;&nbsp;Web Apps&nbsp;&nbsp;/&nbsp;&nbsp;Landing Pages&nbsp;&nbsp;/&nbsp;&nbsp;Brand Sites&nbsp;&nbsp;/&nbsp;&nbsp;SaaS&nbsp;&nbsp;/&nbsp;&nbsp;Digital Experiences
+        </p>
+
+        <h1 class="wdp-hero__title">Websites &amp;<br>Digital Products</h1>
+
+        <p class="wdp-hero__desc">
+          Live websites, web apps, landing pages, and digital product experiences — designed with visual direction, interface clarity, and code-driven execution.
+        </p>
+
+        <p class="wdp-hero__sub">
+          A curated index of digital work with live links, case studies, product context, screens, and build notes.
+        </p>
+
+      </div>
+      <div class="wdp-hero__rule"></div>
+    </section>
+
+    <!-- ─── FEATURED PROJECT ─── -->
+    <section class="wdp-featured">
+      <div class="wdp-featured__inner">
+
+        <div class="wdp-featured__header">
+          <span class="wdp-section-label">Featured Digital Project</span>
+          <div class="wdp-featured__line"></div>
+        </div>
+
+        <div id="wdp-featured-slot"></div>
+
+      </div>
+    </section>
+
+    <!-- ─── CURATED SHOWCASE ─── -->
+    <section class="wdp-showcase">
+      <div class="wdp-showcase__inner">
+
+        <div class="wdp-showcase__header">
+          <span class="wdp-section-label">Curated Showcase</span>
+          <div class="wdp-showcase__line"></div>
+        </div>
+
+        <div class="wdp-showcase__blocks" id="wdp-showcase-list"></div>
+
+      </div>
+    </section>
+
+    <!-- ─── DIGITAL PROJECT INDEX ─── -->
+    <section class="wdp-index">
+      <div class="wdp-index__inner">
+
+        <div class="wdp-index__header">
+          <div class="wdp-index__header-top">
+            <span class="wdp-section-label">Digital Project Index</span>
+            <span class="wdp-index__count" id="wdp-count"></span>
+          </div>
+          <p class="wdp-index__desc">Live websites, tools, and web experiments — collected as shipped digital work.</p>
+        </div>
+
+        <div class="wdp-index__list" id="wdp-index-list"></div>
+
+      </div>
+    </section>
+
+    <!-- ─── PROCESS ─── -->
+    <section class="wdp-process">
+      <div class="wdp-process__inner">
+
+        <p class="wdp-process__eyebrow">Process</p>
+        <h2 class="wdp-process__title">From Visual Direction<br>to Live Experience</h2>
+
+        <ol class="wdp-process__steps" aria-label="Process steps">
+          <li class="wdp-process__step">
+            <span class="wdp-process__num">01</span>
+            <strong class="wdp-process__label">Direction</strong>
+            <span class="wdp-process__desc">Brand research, creative framing, visual references</span>
+          </li>
+          <li class="wdp-process__step">
+            <span class="wdp-process__num">02</span>
+            <strong class="wdp-process__label">UX Structure</strong>
+            <span class="wdp-process__desc">Site map, flow architecture, interaction principles</span>
+          </li>
+          <li class="wdp-process__step">
+            <span class="wdp-process__num">03</span>
+            <strong class="wdp-process__label">Interface Design</strong>
+            <span class="wdp-process__desc">Typography, grid, component system, visual hierarchy</span>
+          </li>
+          <li class="wdp-process__step">
+            <span class="wdp-process__num">04</span>
+            <strong class="wdp-process__label">Build</strong>
+            <span class="wdp-process__desc">Clean code, performance-first, semantic markup</span>
+          </li>
+          <li class="wdp-process__step">
+            <span class="wdp-process__num">05</span>
+            <strong class="wdp-process__label">Polish</strong>
+            <span class="wdp-process__desc">Animation, micro-detail, accessibility, cross-browser QA</span>
+          </li>
+          <li class="wdp-process__step">
+            <span class="wdp-process__num">06</span>
+            <strong class="wdp-process__label">Launch</strong>
+            <span class="wdp-process__desc">Deployment, performance monitoring, live verification</span>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- ─── CONTACT CTA ─── -->
+    <section class="wdp-contact">
+      <div class="wdp-contact__inner">
+        <p class="wdp-contact__eyebrow">Start a project</p>
+        <p class="wdp-contact__text">
+          Need a premium website, web app,<br>or digital product experience?
+        </p>
+        <p class="wdp-contact__support">
+          From creative direction and UX structure to polished live execution.
+        </p>
+        <a href="/#contact" class="wdp-contact__cta">
+          Let's build it&nbsp;&nbsp;→
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <div class="footer__grid">
+        <div class="footer__col">
+          <span class="footer__col-label">Navigate</span>
+          <a href="/" class="footer__link">Home</a>
+          <a href="/#work" class="footer__link">Work</a>
+          <a href="/#services" class="footer__link">Services</a>
+          <a href="/#clients" class="footer__link">Clients</a>
+          <a href="/blog.html" class="footer__link">Blog</a>
+          <a href="/tools.html" class="footer__link">Tools</a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-label">Connect</span>
+          <a href="https://www.instagram.com/_arya.sen/" target="_blank" rel="noopener" class="footer__link">Instagram <span>↗</span></a>
+          <a href="https://www.behance.net/supriyosen1" target="_blank" rel="noopener" class="footer__link">Behance <span>↗</span></a>
+          <a href="mailto:aryaknj@gmail.com" class="footer__link">Email <span>↗</span></a>
+          <a href="https://wa.me/919851202658" target="_blank" rel="noopener" class="footer__link">WhatsApp <span>↗</span></a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__col-label">Studio</span>
+          <p class="footer__studio-desc">Co-founder &amp; Creative Director</p>
+          <p class="footer__studio-name">Bufferrring</p>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Supriyo Sen. Crafted with <span class="footer-accent">code &amp; caffeine</span>.</p>
+        <a href="#" class="footer__back-top">Back to top ↑</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/websites-page.js"></script>
+
+</body>
+
+</html>

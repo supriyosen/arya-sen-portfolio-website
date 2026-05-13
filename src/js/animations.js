@@ -35,6 +35,8 @@ export function initAnimations() {
     const heroLabel = document.querySelector('.hero__label');
     const heroTitle = document.querySelector('.hero__title');
     const heroRule  = document.querySelector('.hero__rule');
+    const heroPositioning = document.querySelector('.hero__positioning');
+    const heroSupporting  = document.querySelector('.hero__supporting');
     const heroMeta  = document.querySelector('.hero__meta');
     const heroScroll = document.querySelector('.hero__scroll-indicator');
 
@@ -74,6 +76,16 @@ export function initAnimations() {
                 duration: 1.0,
                 ease: 'power3.inOut',
             }, '-=0.5');
+        }
+
+        // Positioning + supporting copy fade up after the rule draws
+        if (heroPositioning) {
+            gsap.set(heroPositioning, { opacity: 0, y: 14 });
+            heroTl.to(heroPositioning, { opacity: 1, y: 0, duration: 0.85, ease: 'power2.out' }, '-=0.55');
+        }
+        if (heroSupporting) {
+            gsap.set(heroSupporting, { opacity: 0, y: 14 });
+            heroTl.to(heroSupporting, { opacity: 1, y: 0, duration: 0.85, ease: 'power2.out' }, '-=0.7');
         }
 
         // Meta row fades + rises

@@ -1,0 +1,175 @@
+// ─── Featured Work Wall — Static Masonry Column Grid ───
+
+.featured-work {
+    position: relative;
+    background: $bg-primary;
+    overflow: hidden;
+    // Minimal top gap — hero gradient handles the visual transition
+    padding-top: clamp(8px, 1.5vw, 20px);
+}
+
+// ─── Stage: mask fades just the very bottom into black ───
+// Was previously 52%→100% (a 48% fade region) which combined with the tall grid
+// created a ~900px visually-empty zone before the next section. Tight 8% fade
+// preserves the bleed-into-darkness feel without the dark-block-while-scrolling.
+.featured-work__stage {
+    position: relative;
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 92%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 92%,
+        transparent 100%
+    );
+}
+
+// ─── Multi-column grid — fixed height clips all columns at the same line ───
+// Was clamp(1100px, 160vh, 2000px) — 160vh is excessive on tall displays and
+// produced a 2000px section that compounded the mask-fade empty area.
+.fw-grid {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(5px, 0.5vw, 8px);
+    padding: 0 clamp(5px, 0.5vw, 8px);
+    height: clamp(900px, 105vh, 1300px);
+    overflow: hidden;
+}
+
+// ─── Individual column ───
+.fw-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5px, 0.5vw, 8px);
+    min-width: 0;
+}
+
+// ─── Card ───
+.fw-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: $radius-sm;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.5s $ease-out-expo, box-shadow 0.5s $ease-out-expo;
+
+    &:focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 0.45);
+        outline-offset: 2px;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+
+        .fw-card__overlay {
+            opacity: 1;
+        }
+    }
+}
+
+// ─── Image — full natural aspect ratio, zero crop ───
+// Background matches page bg so unloaded/lazy cards blend in instead of
+// flashing as #10111D dark-blue rectangles while images load on scroll.
+.fw-card__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: unset;
+    background: $bg-primary;
+    transition: transform 0.6s $ease-out-expo;
+}
+
+// ─── Hover overlay ───
+.fw-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.72) 0%,
+        rgba(0, 0, 0, 0.15) 55%,
+        transparent        100%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(10px, 1.2vw, 16px);
+    pointer-events: none;
+}
+
+.fw-card__title {
+    font-family: $font-display;
+    font-size: clamp(0.68rem, 0.8vw, 0.82rem);
+    font-weight: 700;
+    color: $text-primary;
+    line-height: 1.2;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fw-card__tag {
+    font-family: $font-body;
+    font-size: clamp(0.58rem, 0.65vw, 0.68rem);
+    color: rgba(240, 237, 230, 0.5);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 3px;
+}
+
+// ─── Left / right edge fades ───
+.fw-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(40px, 5vw, 80px);
+    pointer-events: none;
+    z-index: 2;
+
+    &--left {
+        left: 0;
+        background: linear-gradient(to right, $bg-primary 10%, transparent);
+    }
+
+    &--right {
+        right: 0;
+        background: linear-gradient(to left, $bg-primary 10%, transparent);
+    }
+}
+
+// ─── Responsive ───
+@media (max-width: $bp-tablet) {
+    .fw-grid {
+        gap: 5px;
+        padding: 0 5px;
+        height: clamp(700px, 110vh, 1200px);
+    }
+
+    .fw-col {
+        gap: 5px;
+    }
+}
+
+@media (max-width: $bp-mobile) {
+    .fw-grid {
+        gap: 4px;
+        padding: 0 4px;
+        height: clamp(560px, 100vh, 900px);
+    }
+
+    .fw-col {
+        gap: 4px;
+    }
+}

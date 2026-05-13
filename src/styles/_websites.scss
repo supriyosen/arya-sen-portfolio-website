@@ -1,0 +1,452 @@
+// ─── Websites Showcase Section ───
+
+.websites {
+    padding: $section-padding 0;
+    background: $bg-primary;
+    position: relative;
+}
+
+.wsite-inner {
+    width: $container-width;
+    margin: 0 auto;
+}
+
+// ─── Section Header ───
+
+.wsite-header {
+    margin-bottom: 56px;
+}
+
+.wsite-header__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.wsite-header__bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.wsite-heading {
+    font-family: $font-display;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: $text-primary;
+    margin: 0;
+
+    em {
+        font-style: italic;
+        font-weight: 700;
+        color: rgba($text-primary, 0.45);
+    }
+}
+
+.wsite-heading-sub {
+    font-family: $font-body;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: $text-muted;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0;
+    padding-bottom: 12px;
+    align-self: flex-end;
+}
+
+// ─── Filter Pills ───
+
+.wsite-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.wsite-filter {
+    font-family: $font-body;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: $text-muted;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: $radius-pill;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all $duration-fast $ease-out-expo;
+
+    &:hover {
+        color: $text-primary;
+        border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    &.active {
+        color: $text-dark;
+        background: $text-primary;
+        border-color: $text-primary;
+    }
+}
+
+// ─── Divider ───
+
+.wsite-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    margin-bottom: 64px;
+}
+
+// ─── Card List ───
+
+.wsite-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+// ─── Card Base ───
+
+.wsite-card {
+    border-radius: $radius-lg;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.022);
+    overflow: hidden;
+    transition:
+        border-color $duration-mid $ease-out-expo,
+        transform $duration-mid $ease-out-expo,
+        box-shadow $duration-mid $ease-out-expo;
+
+    &:hover {
+        border-color: rgba(255, 255, 255, 0.14);
+        transform: translateY(-6px);
+        box-shadow:
+            0 30px 80px rgba(0, 0, 0, 0.4),
+            0 0 60px rgba(91, 92, 255, 0.08);
+    }
+}
+
+// ─── Featured Card ───
+
+.wsite-card--featured {
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    min-height: 480px;
+
+    @media (max-width: $bp-tablet) {
+        grid-template-columns: 1fr;
+    }
+
+    .wsite-card__visual {
+        border-radius: 0;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        height: 100%;
+        min-height: 440px;
+
+        @media (max-width: $bp-tablet) {
+            border-right: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            min-height: 280px;
+        }
+    }
+
+    .wsite-card__body {
+        padding: 48px 52px 48px 56px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        justify-content: center;
+
+        @media (max-width: $bp-tablet) {
+            padding: 36px 32px;
+        }
+    }
+
+    .wsite-card__index {
+        font-family: $font-body;
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        color: rgba(255, 255, 255, 0.18);
+        margin-bottom: 24px;
+    }
+
+    .wsite-card__titles {
+        margin: 12px 0 20px;
+    }
+
+    .wsite-card__title {
+        font-family: $font-display;
+        font-size: clamp(2rem, 3.5vw, 3.2rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.0;
+        color: $text-primary;
+        margin: 0 0 6px;
+    }
+
+    .wsite-card__sub {
+        font-family: $font-display;
+        font-size: clamp(1.3rem, 2.2vw, 2rem);
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        color: rgba($text-primary, 0.35);
+        margin: 0;
+        font-style: italic;
+    }
+}
+
+// ─── Regular Card ───
+
+.wsite-card--regular {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+
+    @media (max-width: $bp-tablet) {
+        grid-template-columns: 1fr;
+    }
+
+    .wsite-card__visual {
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        min-height: 320px;
+
+        @media (max-width: $bp-tablet) {
+            border-right: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            min-height: 220px;
+        }
+    }
+
+    .wsite-card__body {
+        padding: 36px 44px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .wsite-card__title {
+        font-family: $font-display;
+        font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        color: $text-primary;
+        margin: 12px 0 16px;
+    }
+}
+
+// ─── Card Visual / Browser ───
+
+.wsite-card__visual {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+
+    &:hover {
+        .wsite-card__img { transform: scale(1.03); }
+        .wsite-card__hover-hint { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        .wsite-card__screen::after { opacity: 1; }
+    }
+}
+
+.wsite-card__browser {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.wsite-card__chrome {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;
+}
+
+.wsite-card__chrome-dots {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+
+    span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+
+        &:nth-child(1) { background: rgba(255, 96, 96, 0.5); }
+        &:nth-child(2) { background: rgba(255, 200, 80, 0.5); }
+        &:nth-child(3) { background: rgba(80, 200, 80, 0.5); }
+    }
+}
+
+.wsite-card__chrome-url {
+    font-family: $font-body;
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.28);
+    letter-spacing: 0.02em;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 12px;
+    border-radius: $radius-pill;
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 260px;
+    margin: 0 auto;
+}
+
+.wsite-card__chrome-spacer {
+    width: 48px;
+    flex-shrink: 0;
+}
+
+.wsite-card__screen {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba($accent, 0.08);
+        opacity: 0;
+        transition: opacity $duration-fast $ease-out-expo;
+        pointer-events: none;
+    }
+}
+
+.wsite-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.8s $ease-out-expo;
+}
+
+.wsite-card__hover-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    color: $text-dark;
+    font-family: $font-body;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 10px 20px;
+    border-radius: $radius-pill;
+    pointer-events: none;
+    transition:
+        opacity $duration-fast $ease-out-expo,
+        transform $duration-fast $ease-out-expo;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+// ─── Card Body Shared ───
+
+.wsite-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wsite-card__category {
+    font-family: $font-body;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $accent;
+    padding: 4px 10px;
+    border: 1px solid rgba($accent, 0.3);
+    border-radius: $radius-pill;
+}
+
+.wsite-card__year {
+    font-family: $font-body;
+    font-size: 0.7rem;
+    color: $text-muted;
+    letter-spacing: 0.06em;
+}
+
+.wsite-card__desc {
+    font-family: $font-body;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: $text-muted;
+    margin: 0 0 24px;
+    flex: 1;
+}
+
+.wsite-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 28px;
+}
+
+.wsite-card__tag {
+    font-family: $font-body;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: $radius-pill;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.wsite-card__actions {
+    margin-top: auto;
+}
+
+.wsite-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $font-body;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $text-primary;
+    text-decoration: none;
+    padding: 12px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: $radius-pill;
+    transition: all $duration-fast $ease-out-expo;
+
+    svg {
+        transition: transform $duration-fast $ease-out-expo;
+    }
+
+    &:hover {
+        background: $text-primary;
+        color: $text-dark;
+        border-color: $text-primary;
+
+        svg {
+            transform: translate(3px, -3px);
+        }
+    }
+}

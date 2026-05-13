@@ -6,6 +6,10 @@
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: -0.03em;
+
+    @media (max-width: $bp-mobile) {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
 }
 
 .heading-lg {
@@ -14,6 +18,10 @@
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
+
+    @media (max-width: $bp-mobile) {
+        font-size: clamp(1.6rem, 7vw, 2rem);
+    }
 }
 
 .heading-md {
@@ -70,7 +78,7 @@
     }
 }
 
-// ─── Section Label (Vertical) ───
+// ─── Section Label (Vertical on desktop, horizontal on mobile) ───
 .section-label {
     font-family: $font-body;
     font-size: 0.65rem;
@@ -78,20 +86,21 @@
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: $text-muted;
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
-    position: absolute;
-    left: clamp(16px, 3vw, 40px);
-    top: 50%;
-    translate: 0 -50%;
 
-    @media (max-width: $bp-tablet) {
-        writing-mode: horizontal-tb;
-        transform: none;
-        position: relative;
-        left: 0;
-        top: 0;
-        translate: none;
-        margin-bottom: 32px;
+    // Mobile/tablet: horizontal, aligned to the same grid as section containers
+    display: block;
+    width: $container-width;
+    margin: 0 auto 20px;
+
+    // Desktop only: rotate vertically and pin to left edge
+    @media (min-width: #{$bp-tablet + 1}) {
+        writing-mode: vertical-lr;
+        transform: rotate(180deg);
+        position: absolute;
+        left: clamp(16px, 3vw, 40px);
+        top: 50%;
+        translate: 0 -50%;
+        width: auto;
+        margin: 0;
     }
 }

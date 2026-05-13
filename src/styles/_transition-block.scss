@@ -1,0 +1,247 @@
+// ─── Transition Block — editorial pause between Featured Work and Story ───
+
+.transition-block {
+    position: relative;
+    background: $bg-primary;
+    min-height: clamp(620px, 82vh, 920px);
+    overflow: hidden;
+}
+
+// ─── Background ───
+.tb-bg,
+.tb-glow,
+.tb-grain {
+    display: none;
+}
+
+// ─── Editorial words — off-grid absolute composition ───
+.tb-word {
+    position: absolute;
+    font-family: $font-display;
+    font-size: clamp(3.5rem, 9.5vw, 12.5rem);
+    font-weight: 600;
+    color: $text-primary;
+    letter-spacing: -0.025em;
+    line-height: 0.88;
+    white-space: nowrap;
+    user-select: none;
+    z-index: 2;
+
+    // Hidden before IntersectionObserver fires
+    opacity: 0;
+    transition: opacity 1.25s $ease-out-expo,
+                transform 1.25s $ease-out-expo,
+                letter-spacing 0.5s ease;
+
+    @media (hover: hover) {
+        &:hover {
+            letter-spacing: -0.03em;
+        }
+    }
+}
+
+// ── Per-word: desktop position + initial reveal offset (from) ──
+
+// BETWEEN — upper-right; slides in from the right
+.tb-word--between {
+    top: 8%;
+    right: 4vw;
+    transform: translateX(44px);
+    transition-delay: 0s;
+}
+
+// CRAFT — center zone, slightly right of mid; rises from below
+.tb-word--craft {
+    top: 39%;
+    left: 22%;
+    transform: translateY(36px);
+    transition-delay: 0.22s;
+}
+
+// AND CODE — lower-left; slides in from the left
+.tb-word--code {
+    bottom: 13%;
+    left: 4vw;
+    transform: translateX(-44px);
+    transition-delay: 0.44s;
+}
+
+// ─── Revealed state (class added by IntersectionObserver) ───
+.transition-block.is-revealed {
+    .tb-word {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    .tb-note {
+        opacity: 1;
+        transform: translateY(-50%);
+        transition-delay: 0.62s;
+    }
+
+    .tb-aside {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.74s;
+    }
+}
+
+// ─── Right-side microcopy note ───
+.tb-note {
+    position: absolute;
+    right: 4vw;
+    top: 50%;
+    max-width: clamp(160px, 14vw, 210px);
+    z-index: 3;
+
+    // Initial: hidden + shifted slightly down from its centered position
+    opacity: 0;
+    transform: translateY(calc(-50% + 16px));
+    transition: opacity 1s $ease-out-expo, transform 1s $ease-out-expo;
+}
+
+.tb-note__label {
+    display: block;
+    font-family: $font-body;
+    font-size: 0.53rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba($text-primary, 0.36);
+    margin-bottom: 10px;
+}
+
+.tb-note__rule {
+    display: block;
+    height: 1px;
+    width: 22px;
+    background: rgba($text-primary, 0.14);
+    margin-bottom: 12px;
+}
+
+.tb-note__body {
+    font-family: $font-body;
+    font-size: clamp(0.6rem, 0.68vw, 0.72rem);
+    color: rgba($text-primary, 0.4);
+    line-height: 1.68;
+    margin: 0;
+}
+
+// ─── Left-side subtle aside ───
+.tb-aside {
+    position: absolute;
+    left: 4vw;
+    bottom: 7%;
+    z-index: 3;
+
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.9s $ease-out-expo, transform 0.9s $ease-out-expo;
+
+    p {
+        font-family: $font-body;
+        font-size: clamp(0.58rem, 0.64vw, 0.68rem);
+        color: rgba($text-primary, 0.26);
+        line-height: 1.65;
+        margin: 0 0 6px;
+    }
+}
+
+.tb-aside__url {
+    display: block;
+    font-family: $font-body;
+    font-size: 0.5rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba($text-primary, 0.14);
+}
+
+// ─── Responsive: Tablet ───
+// Switch to flow layout; preserve diagonal feel with text-align offsets
+@media (max-width: $bp-tablet) {
+    .transition-block {
+        min-height: auto;
+        padding: clamp(80px, 14vw, 130px) clamp(20px, 5vw, 56px) clamp(60px, 10vw, 100px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tb-word {
+        position: relative;
+        top: auto; right: auto; bottom: auto; left: auto;
+        display: block;
+        white-space: nowrap;
+        margin-bottom: 0.04em;
+        // Uniform from-below reveal on tablet
+        transform: translateY(28px);
+    }
+
+    .tb-word--between {
+        text-align: right;
+        transition-delay: 0s;
+    }
+
+    .tb-word--craft {
+        text-align: right;
+        padding-right: 10%;
+        transition-delay: 0.18s;
+    }
+
+    .tb-word--code {
+        text-align: left;
+        padding-left: 4%;
+        transition-delay: 0.36s;
+    }
+
+    .transition-block.is-revealed .tb-word {
+        transform: translate(0, 0);
+    }
+
+    .tb-note {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: translateY(16px);
+        max-width: 300px;
+        margin: 48px 0 0 auto;
+    }
+
+    .transition-block.is-revealed .tb-note {
+        transform: translateY(0);
+        transition-delay: 0.52s;
+    }
+
+    .tb-aside {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: 28px;
+    }
+
+    .transition-block.is-revealed .tb-aside {
+        transition-delay: 0.62s;
+    }
+}
+
+// ─── Responsive: Mobile ───
+@media (max-width: $bp-mobile) {
+    .transition-block {
+        padding: clamp(60px, 16vw, 90px) 5vw clamp(48px, 10vw, 72px);
+    }
+
+    .tb-word {
+        font-size: clamp(2.6rem, 13vw, 4rem);
+        white-space: normal;
+        word-break: keep-all;
+    }
+
+    .tb-word--craft {
+        padding-right: 0;
+        padding-left: 8vw;
+        text-align: left;
+    }
+
+    .tb-note {
+        margin: 36px 0 0;
+        max-width: 100%;
+    }
+}

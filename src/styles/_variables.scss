@@ -1,22 +1,28 @@
 // ─── Color Tokens ───
-$bg-primary:    #060606;
-$bg-surface:    #111111;
-$bg-card:       #1a1a1a;
+$bg-primary:    #050509;    // Core Black
+$bg-ink:        #090A12;    // Deep Ink — alternate sections
+$bg-surface:    #10111D;    // Raised Surface — cards & panels
+$bg-card:       #10111D;    // Project card surface
 
-$text-primary:  #F0EDE6;
-$text-muted:    #777777;
-$text-dark:     #060606;
+$text-primary:  #F4F1EA;    // Warm White — headlines
+$text-body:     #9A9AA6;    // Soft Gray — body copy
+$text-muted:    #5A5A66;    // Muted Gray — meta/secondary
+$text-dark:     #050509;    // For use on light surfaces
 
-// Brand palette
-$brand-orange:  #2107B4;
-$brand-red:     #1805A0;
-$brand-orange2: #3315D4;
-$brand-sand:    #D9C3AB;
-$brand-black:   #000000;
+// Brand violet-blue signature
+$accent:        #3517F5;    // Electric Violet — primary CTAs & labels
+$accent-mid:    #5B5CFF;    // Ion Blue — secondary accents & hovers
+$accent-hi:     #BFC7FF;    // Cold Highlight
+$accent-deep:   #2107B4;    // Signature Violet — deeper tone
 
-$accent:        #2107B4;
-$accent-glow:   #2107B4;
-$accent-warm:   #3315D4;
+// Legacy aliases (backward compat)
+$brand-orange:  #3517F5;
+$brand-red:     #2107B4;
+$brand-orange2: #5B5CFF;
+$brand-sand:    #BFC7FF;
+$brand-black:   #050509;
+$accent-glow:   #5B5CFF;
+$accent-warm:   #3517F5;
 
 // ─── Typography ───
 $font-display:  'Syne', sans-serif;

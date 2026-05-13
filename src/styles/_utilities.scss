@@ -1,10 +1,13 @@
 // ─── Global Utility Classes ───
 
 // Reveal animation base
+// Was $duration-slow (1.2s) — too slow; if user scrolled fast they would see
+// 1.2s of empty space before content faded in, looking like a "dark block."
+// Shorter offset (24px) and faster transition keep content visible during scroll.
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity $duration-slow $ease-out-expo, transform $duration-slow $ease-out-expo;
+    transform: translateY(24px);
+    transition: opacity 0.45s $ease-out-expo, transform 0.55s $ease-out-expo;
 
     &.is-visible {
         opacity: 1;
@@ -15,8 +18,8 @@
 .reveal-stagger {
     >* {
         opacity: 0;
-        transform: translateY(30px);
-        transition: opacity $duration-mid $ease-out-expo, transform $duration-mid $ease-out-expo;
+        transform: translateY(20px);
+        transition: opacity 0.4s $ease-out-expo, transform 0.5s $ease-out-expo;
     }
 
     &.is-visible>* {
@@ -26,7 +29,7 @@
 
     @for $i from 1 through 10 {
         &.is-visible>*:nth-child(#{$i}) {
-            transition-delay: #{$i * 0.08}s;
+            transition-delay: #{$i * 0.06}s;
         }
     }
 }

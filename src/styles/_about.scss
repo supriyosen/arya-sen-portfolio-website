@@ -1,7 +1,7 @@
 // ─── About / Story Section ───
 .about {
     position: relative;
-    padding: $section-padding 0;
+    padding: clamp(140px, 18vw, 240px) 0 $section-padding;
     overflow: hidden;
 
     &__container {
@@ -9,34 +9,42 @@
         margin: 0 auto;
         display: grid;
         grid-template-columns: 1fr auto;
-        gap: clamp(40px, 8vw, 120px);
+        grid-template-areas:
+            "text   counter"
+            "agency counter";
+        column-gap: clamp(40px, 8vw, 120px);
+        row-gap: 0;
         align-items: start;
         padding-left: clamp(60px, 6vw, 100px);
 
         @media (max-width: $bp-tablet) {
             grid-template-columns: 1fr;
+            grid-template-areas:
+                "text"
+                "counter"
+                "agency";
             padding-left: 0;
-            gap: 40px;
+            row-gap: 40px;
         }
     }
 
+    &__text    { grid-area: text; }
+    &__counter { grid-area: counter; }
+    &__agency  { grid-area: agency; }
+
     &__text {
+        max-width: 54ch;
+
         p {
             font-family: $font-display;
-            font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+            font-size: clamp(0.88rem, 1.4vw, 1.25rem);
             font-weight: 600;
-            line-height: 1.35;
+            line-height: 1.65;
             letter-spacing: -0.01em;
             color: $text-primary;
 
-            .text-muted-inline {
-                color: $text-muted;
-                transition: color $duration-mid $ease-out-expo;
-            }
-
-            // Animate muted text on scroll
-            &.is-visible .text-muted-inline {
-                color: $text-primary;
+            & + p {
+                margin-top: 2em;
             }
         }
     }
@@ -72,7 +80,7 @@
     &__agency {
         margin-top: 48px;
         padding-top: 32px;
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        border-top: 1px solid rgba(244, 241, 234, 0.08);
 
         .agency-label {
             margin-bottom: 8px;
