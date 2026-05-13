@@ -54,7 +54,8 @@ async function init() {
   window.scrollTo(0, 0);
   document.documentElement.classList.remove('is-preloading');
 
-  // Footer reveals immediately; nav entrance is handled by initAnimations()
+  // Reveal chrome hidden by inline FOUC-prevention CSS
+  document.querySelector('.nav')?.style.setProperty('opacity', '1');
   document.querySelector('.footer').style.opacity = '1';
   document.querySelector('.featured-work')?.style.setProperty('opacity', '1');
 
